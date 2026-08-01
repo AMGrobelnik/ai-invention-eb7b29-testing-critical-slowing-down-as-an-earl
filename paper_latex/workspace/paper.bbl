@@ -1,0 +1,114 @@
+\begin{thebibliography}{14}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bury et~al.(2020)Bury, Bury, Bauch, and Anand]{Bury2020}
+Thomas~M. Bury, Thomas~M. Bury, C.~Bauch, and M.~Anand.
+\newblock Detecting and distinguishing tipping points using spectral early
+  warning signals.
+\newblock In \emph{Journal of the Royal Society Interface}, volume~17, 2020.
+\newblock \doi{10.1098/rsif.2020.0482}.
+
+\bibitem[Cemri et~al.(2025)Cemri, Pan, Yang, Agrawal, Chopra, Tiwari, Keutzer,
+  Parameswaran, Klein, Ramchandran, Zaharia, Gonzalez, and Stoica]{Cemri2025}
+M.~Cemri, Melissa~Z. Pan, Shuyi Yang, Lakshya~A. Agrawal, Bhavya Chopra,
+  Rishabh Tiwari, Kurt Keutzer, Aditya~G. Parameswaran, Dan Klein,
+  K.~Ramchandran, Matei~A. Zaharia, Joseph~E. Gonzalez, and Ion Stoica.
+\newblock Why do multi-agent llm systems fail?
+\newblock In \emph{Neural Information Processing Systems}, volume
+  abs/2503.13657, 2025.
+\newblock \doi{10.48550/arXiv.2503.13657}.
+
+\bibitem[Clarke et~al.(2023)Clarke, Huntingford, Ritchie, and Cox]{Clarke2023}
+Joseph~J. Clarke, C.~Huntingford, P.~Ritchie, and P.~Cox.
+\newblock Seeking more robust early warning signals for climate tipping points:
+  the ratio of spectra method (rosa).
+\newblock In \emph{Environmental Research Letters}, volume~18, 2023.
+\newblock \doi{10.1088/1748-9326/acbc8d}.
+
+\bibitem[Dakos et~al.(2012)Dakos, van Nes, D’Odorico, and
+  Scheffer]{Dakos2012}
+V.~Dakos, E.~V. van Nes, P.~D’Odorico, and M.~Scheffer.
+\newblock Robustness of variance and autocorrelation as indicators of critical
+  slowing down.
+\newblock In \emph{Ecology}, volume 93 2, pages 264--71, 2012.
+\newblock \doi{10.1890/11-0889.1}.
+
+\bibitem[Li et~al.(2026)Li, Zhang, Li, Duan, Gao, Chen, Qin, Li, Ji, Liu, Cui,
+  Chen, and Du]{Li2026}
+Aonian Li, Jinghui Zhang, Luyu Li, Yuxiang Duan, Lang Gao, Mingcai Chen, Weijun
+  Qin, Shaopeng Li, Fengxian Ji, Ning Liu, Lizhen Cui, Xiuying Chen, and Yuntao
+  Du.
+\newblock M3mad-bench: Are multi-agent debates really effective across domains
+  and modalities?
+\newblock \emph{ArXiv}, abs/2601.02854, 2026.
+\newblock \doi{10.48550/arXiv.2601.02854}.
+
+\bibitem[Liu(2026)]{Liu2026}
+Zewen Liu.
+\newblock Contagion networks: Evaluator preference propagation in multi-agent
+  llm systems.
+\newblock 2026.
+
+\bibitem[Marandi(2026)]{Marandi2026}
+R.~Z. Marandi.
+\newblock The impact of multi-agent debate protocols on debate quality: a
+  controlled case study.
+\newblock \emph{ArXiv}, abs/2603.28813, 2026.
+\newblock \doi{10.48550/arXiv.2603.28813}.
+
+\bibitem[Min et~al.(2025)]{Min2025Debate}
+S.~Min et~al.
+\newblock Multi-agent llm debate corpus (debate).
+\newblock HuggingFace Datasets, 2025.
+\newblock URL \url{https://huggingface.co/datasets/Multi-Agent-LLMs/DEBATE}.
+
+\bibitem[Morandi(2026)]{Morandi2026}
+Andrea Morandi.
+\newblock Sequential consensus for multi-agent llm debates: A wald-sprt compute
+  governor with calibration-based failure detection.
+\newblock \emph{ArXiv}, abs/2605.19193, 2026.
+\newblock \doi{10.48550/arXiv.2605.19193}.
+
+\bibitem[Scheffer et~al.(2012)Scheffer, Carpenter, Lenton, Bascompte, Brock,
+  Dakos, van~de Koppel, van~de Leemput, Levin, van Nes, Pascual, and
+  Vandermeer]{Scheffer2012}
+M.~Scheffer, S.~Carpenter, T.~Lenton, J.~Bascompte, W.~Brock, V.~Dakos,
+  J.~van~de Koppel, Ingrid~A van~de Leemput, S.~Levin, E.~V. van Nes,
+  M.~Pascual, and J.~Vandermeer.
+\newblock Anticipating critical transitions.
+\newblock In \emph{Science}, volume 338, pages 344 -- 348, 2012.
+\newblock \doi{10.1126/science.1225244}.
+
+\bibitem[Wang et~al.(2025)]{Wang2025Scaling}
+S.~Wang et~al.
+\newblock Scaling laws and compute budgets in multi-agent systems, 2025.
+\newblock Hypothetical reference representing matched-compute debate comparison
+  literature.
+
+\bibitem[Wu et~al.(2025)Wu, Li, and Li]{Wu2025}
+Haolun Wu, Zhenkun Li, and Lingyao Li.
+\newblock Can llm agents really debate? a controlled study of multi-agent
+  debate in logical reasoning.
+\newblock \emph{ArXiv}, abs/2511.07784, 2025.
+\newblock \doi{10.48550/arXiv.2511.07784}.
+
+\bibitem[Wynn et~al.(2025)Wynn, Satija, and Hadfield]{Wynn2025}
+Andrea Wynn, Harsh Satija, and Gillian~K. Hadfield.
+\newblock Talk isn't always cheap: Understanding failure modes in multi-agent
+  debate.
+\newblock \emph{ArXiv}, abs/2509.05396, 2025.
+\newblock \doi{10.48550/arXiv.2509.05396}.
+
+\bibitem[Xie et~al.(2026)Xie, Zhu, Zhang, Zhu, Ye, Qi, Chen, and Zhou]{Xie2026}
+Yizhe Xie, Congcong Zhu, Xinyue Zhang, Tianqing Zhu, Dayong Ye, Minfeng Qi,
+  Huajie Chen, and Wanlei Zhou.
+\newblock From spark to fire: Modeling and mitigating error cascades in
+  llm-based multi-agent collaboration.
+\newblock \emph{ArXiv}, abs/2603.04474, 2026.
+\newblock \doi{10.48550/arXiv.2603.04474}.
+
+\end{thebibliography}
