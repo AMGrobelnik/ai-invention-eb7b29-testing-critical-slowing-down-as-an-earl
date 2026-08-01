@@ -1,0 +1,526 @@
+{
+  "metadata": {
+    "method_name": "CSD early-warning statistics for multi-agent debate collapse",
+    "description": "Permutation tests, GEE hierarchical model, and 4 binary classifiers (CSD-threshold, naive-agreement baseline, spectral-contagion, SPRT) comparing early-round autocorrelation/variance rise before debat...",
+    "full_results": {
+      "label": "full_dataset",
+      "n_rows": 665,
+      "n_debates": 95,
+      "n_converged": 45,
+      "n_collapsed": 45,
+      "n_deadlocked": 5,
+      "permutation_tests": {
+        "autocorrelation": {
+          "p_value": 0.5541445855414459,
+          "effect_size_cohens_d": 0.5124707424683161,
+          "mean_diff": 0.36363636363636365,
+          "ci_95": [
+            -0.44170941190468826,
+            1.1689821391774156
+          ],
+          "n_collapse_group": 11,
+          "n_converged_group": 4,
+          "n_permutations": 10000,
+          "block_length": 2
+        },
+        "variance": {
+          "p_value": 0.0993900609939006,
+          "effect_size_cohens_d": 0.14471613511902903,
+          "mean_diff": 0.0011886485511111104,
+          "ci_95": [
+            -0.0002930336206278651,
+            0.0026703307228500856
+          ],
+          "n_collapse_group": 250,
+          "n_converged_group": 225,
+          "n_permutations": 10000,
+          "block_length": 2
+        }
+      },
+      "hierarchical_model": {
+        "method": "GEE (Binomial family, exchangeable working correlation, debate-level clustering) — substituted for glmer/lme4 per fallback_plan (pure-Python glmm unavailable)",
+        "coefficients": {
+          "intercept": {
+            "estimate": 0.22496543781831957,
+            "se": 0.6417667787468214,
+            "z": 0.3505407965454519,
+            "p": 0.7259328787095608,
+            "ci_95": [
+              -1.0328974485254503,
+              1.4828283241620897
+            ]
+          },
+          "round_number": {
+            "estimate": 0.0031181314872140466,
+            "se": 0.02894530527236865,
+            "z": 0.10772494737482118,
+            "p": 0.914213879524323,
+            "ci_95": [
+              -0.05361466684662851,
+              0.059850929821056595
+            ]
+          },
+          "autocorr_zscore": {
+            "estimate": 0.07514788240502794,
+            "se": 0.2366576149921933,
+            "z": 0.3175384084197201,
+            "p": 0.7508351005116713,
+            "ci_95": [
+              -0.3887010429796709,
+              0.5389968077897268
+            ]
+          },
+          "variance_zscore": {
+            "estimate": -0.08190245787887517,
+            "se": 0.26373873772892553,
+            "z": -0.31054390638304974,
+            "p": 0.7561473761617087,
+            "ci_95": [
+              -0.5988303838275693,
+              0.4350254680698189
+            ]
+          }
+        },
+        "within_cluster_exchangeable_correlation": 1.0260429367751498,
+        "pseudo_r2_mcfadden_style": -0.0856110440407043,
+        "n_observations": 19,
+        "n_clusters_debates": 11
+      },
+      "classifiers": {
+        "csd_threshold": {
+          "auc": 0.5,
+          "auc_ci_95": [
+            0.5,
+            0.5
+          ],
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "ppv": NaN,
+          "npv": 0.4827586206896552,
+          "tp": 0,
+          "fp": 0,
+          "tn": 14,
+          "fn": 15
+        },
+        "naive_agreement": {
+          "auc": 0.5571428571428572,
+          "auc_ci_95": [
+            0.4141666666666667,
+            0.7
+          ],
+          "sensitivity": 0.26666666666666666,
+          "specificity": 0.8571428571428571,
+          "ppv": 0.6666666666666666,
+          "npv": 0.5217391304347826,
+          "tp": 4,
+          "fp": 2,
+          "tn": 12,
+          "fn": 11
+        },
+        "spectral_model": {
+          "auc": 0.5761904761904761,
+          "auc_ci_95": [
+            0.38565476190476194,
+            0.778690476190476
+          ],
+          "sensitivity": 0.6666666666666666,
+          "specificity": 0.5714285714285714,
+          "ppv": 0.625,
+          "npv": 0.6153846153846154,
+          "tp": 10,
+          "fp": 6,
+          "tn": 8,
+          "fn": 5
+        },
+        "sprt": {
+          "auc": 0.5904761904761905,
+          "auc_ci_95": [
+            0.4452380952380952,
+            0.735892857142857
+          ],
+          "sensitivity": 0.26666666666666666,
+          "specificity": 0.8571428571428571,
+          "ppv": 0.6666666666666666,
+          "npv": 0.5217391304347826,
+          "fp": 2,
+          "tn": 12,
+          "fn": 11
+        }
+      },
+      "lead_time_analysis": {
+        "csd_threshold": {
+          "mean_lead_time_true_positive": NaN,
+          "sd_lead_time_true_positive": NaN,
+          "n_true_positive": 0,
+          "mean_lead_time_true_negative": 5.0,
+          "sd_lead_time_true_negative": 0.0,
+          "n_true_negative": 14,
+          "mean_lead_time_false_positive": NaN,
+          "sd_lead_time_false_positive": NaN,
+          "n_false_positive": 0,
+          "mean_lead_time_false_negative": 5.0,
+          "sd_lead_time_false_negative": 0.0,
+          "n_false_negative": 15
+        },
+        "naive_agreement": {
+          "mean_lead_time_true_positive": 5.0,
+          "sd_lead_time_true_positive": 0.0,
+          "n_true_positive": 4,
+          "mean_lead_time_true_negative": 5.0,
+          "sd_lead_time_true_negative": 0.0,
+          "n_true_negative": 12,
+          "mean_lead_time_false_positive": 5.0,
+          "sd_lead_time_false_positive": 0.0,
+          "n_false_positive": 2,
+          "mean_lead_time_false_negative": 5.0,
+          "sd_lead_time_false_negative": 0.0,
+          "n_false_negative": 11
+        },
+        "spectral_model": {
+          "mean_lead_time_true_positive": 5.0,
+          "sd_lead_time_true_positive": 0.0,
+          "n_true_positive": 10,
+          "mean_lead_time_true_negative": 5.0,
+          "sd_lead_time_true_negative": 0.0,
+          "n_true_negative": 8,
+          "mean_lead_time_false_positive": 5.0,
+          "sd_lead_time_false_positive": 0.0,
+          "n_false_positive": 6,
+          "mean_lead_time_false_negative": 5.0,
+          "sd_lead_time_false_negative": 0.0,
+          "n_false_negative": 5
+        },
+        "sprt": {
+          "mean_lead_time_true_positive": 4.0,
+          "sd_lead_time_true_positive": 2.449489742783178,
+          "n_true_positive": 4,
+          "mean_lead_time_true_negative": 1.0,
+          "sd_lead_time_true_negative": 0.0,
+          "n_true_negative": 12,
+          "mean_lead_time_false_positive": 6.0,
+          "sd_lead_time_false_positive": 0.0,
+          "n_false_positive": 2,
+          "mean_lead_time_false_negative": 1.0,
+          "sd_lead_time_false_negative": 0.0,
+          "n_false_negative": 11
+        }
+      },
+      "deadlock_analysis": {
+        "n_deadlocked": 5,
+        "claim_scope": "n=5 deadlocked cases are insufficient for any mode-specific statistical claim; deadlock detection is deferred and excluded from the classifier train/test evaluation's inferential claims (it is retaine...",
+        "deadlock_cases": [
+          {
+            "debate_id": "0d142f10-780e-47d6-9ff4-fc17fa1b5443",
+            "n_rounds": 7,
+            "agreement_trajectory": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "outcome_label": "deadlocked",
+            "autocorr_pre_mean": NaN,
+            "variance_pre_mean": 0.003555555555555554
+          },
+          {
+            "debate_id": "25208a59-7750-46af-a915-d46ed5415fed",
+            "n_rounds": 7,
+            "agreement_trajectory": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "outcome_label": "deadlocked",
+            "autocorr_pre_mean": -1.0,
+            "variance_pre_mean": 0.014222222222222225
+          },
+          {
+            "debate_id": "b4b7f135-fb74-41e2-aa78-3394c764c373",
+            "n_rounds": 7,
+            "agreement_trajectory": [
+              1.0,
+              0.8,
+              0.6
+            ],
+            "outcome_label": "deadlocked",
+            "autocorr_pre_mean": -0.3333333333333333,
+            "variance_pre_mean": 0.012666666666666668
+          }
+        ]
+      }
+    },
+    "clean_results": {
+      "label": "clean_dataset",
+      "n_rows": 357,
+      "n_debates": 51,
+      "n_converged": 2,
+      "n_collapsed": 45,
+      "n_deadlocked": 4,
+      "permutation_tests": {
+        "autocorrelation": {
+          "p_value": NaN,
+          "effect_size_cohens_d": NaN,
+          "mean_diff": NaN,
+          "ci_95": [
+            NaN,
+            NaN
+          ],
+          "n_collapse_group": 11,
+          "n_converged_group": 0,
+          "n_permutations": 10000,
+          "block_length": 2
+        },
+        "variance": {
+          "p_value": 0.256974302569743,
+          "effect_size_cohens_d": 0.39608708984770746,
+          "mean_diff": 0.0035220105963718823,
+          "ci_95": [
+            -0.002106277607116006,
+            0.00915029879985977
+          ],
+          "n_collapse_group": 245,
+          "n_converged_group": 10,
+          "n_permutations": 10000,
+          "block_length": 2
+        }
+      },
+      "hierarchical_model": {
+        "error": "insufficient data for GEE fit (n_debates=6, n_outcome_classes=1) — expected only at smoke-test scale"
+      },
+      "classifiers": {
+        "csd_threshold": {
+          "auc": 0.5,
+          "auc_ci_95": [
+            0.5,
+            0.5
+          ],
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "ppv": NaN,
+          "npv": 0.0625,
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 15
+        },
+        "naive_agreement": {
+          "auc": 0.6,
+          "auc_ci_95": [
+            0.5,
+            0.7
+          ],
+          "sensitivity": 0.2,
+          "specificity": 1.0,
+          "ppv": 1.0,
+          "npv": 0.07692307692307693,
+          "tp": 3,
+          "fp": 0,
+          "tn": 1,
+          "fn": 12
+        },
+        "spectral_model": {
+          "auc": 0.16666666666666666,
+          "auc_ci_95": [
+            0.06666666666666667,
+            0.3
+          ],
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "ppv": 0.9375,
+          "npv": NaN,
+          "tp": 15,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "sprt": {
+          "auc": 0.6666666666666666,
+          "auc_ci_95": [
+            0.5666666666666667,
+            0.8
+          ],
+          "sensitivity": 0.2,
+          "specificity": 1.0,
+          "ppv": 1.0,
+          "npv": 0.07692307692307693,
+          "fp": 0,
+          "tn": 1,
+          "fn": 12
+        }
+      },
+      "lead_time_analysis": {
+        "csd_threshold": {
+          "mean_lead_time_true_positive": NaN,
+          "sd_lead_time_true_positive": NaN,
+          "n_true_positive": 0,
+          "mean_lead_time_true_negative": 5.0,
+          "sd_lead_time_true_negative": NaN,
+          "n_true_negative": 1,
+          "mean_lead_time_false_positive": NaN,
+          "sd_lead_time_false_positive": NaN,
+          "n_false_positive": 0,
+          "mean_lead_time_false_negative": 5.0,
+          "sd_lead_time_false_negative": 0.0,
+          "n_false_negative": 15
+        },
+        "naive_agreement": {
+          "mean_lead_time_true_positive": 5.0,
+          "sd_lead_time_true_positive": 0.0,
+          "n_true_positive": 3,
+          "mean_lead_time_true_negative": 5.0,
+          "sd_lead_time_true_negative": NaN,
+          "n_true_negative": 1,
+          "mean_lead_time_false_positive": NaN,
+          "sd_lead_time_false_positive": NaN,
+          "n_false_positive": 0,
+          "mean_lead_time_false_negative": 5.0,
+          "sd_lead_time_false_negative": 0.0,
+          "n_false_negative": 12
+        },
+        "spectral_model": {
+          "mean_lead_time_true_positive": 5.0,
+          "sd_lead_time_true_positive": 0.0,
+          "n_true_positive": 15,
+          "mean_lead_time_true_negative": NaN,
+          "sd_lead_time_true_negative": NaN,
+          "n_true_negative": 0,
+          "mean_lead_time_false_positive": 5.0,
+          "sd_lead_time_false_positive": NaN,
+          "n_false_positive": 1,
+          "mean_lead_time_false_negative": NaN,
+          "sd_lead_time_false_negative": NaN,
+          "n_false_negative": 0
+        },
+        "sprt": {
+          "mean_lead_time_true_positive": 6.0,
+          "sd_lead_time_true_positive": 0.0,
+          "n_true_positive": 3,
+          "mean_lead_time_true_negative": 6.0,
+          "sd_lead_time_true_negative": NaN,
+          "n_true_negative": 1,
+          "mean_lead_time_false_positive": NaN,
+          "sd_lead_time_false_positive": NaN,
+          "n_false_positive": 0,
+          "mean_lead_time_false_negative": 6.0,
+          "sd_lead_time_false_negative": 0.0,
+          "n_false_negative": 12
+        }
+      },
+      "deadlock_analysis": {
+        "n_deadlocked": 4,
+        "claim_scope": "n=5 deadlocked cases are insufficient for any mode-specific statistical claim; deadlock detection is deferred and excluded from the classifier train/test evaluation's inferential claims (it is retaine...",
+        "deadlock_cases": [
+          {
+            "debate_id": "0d142f10-780e-47d6-9ff4-fc17fa1b5443",
+            "n_rounds": 7,
+            "agreement_trajectory": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "outcome_label": "deadlocked",
+            "autocorr_pre_mean": NaN,
+            "variance_pre_mean": 0.003555555555555554
+          },
+          {
+            "debate_id": "25208a59-7750-46af-a915-d46ed5415fed",
+            "n_rounds": 7,
+            "agreement_trajectory": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "outcome_label": "deadlocked",
+            "autocorr_pre_mean": -1.0,
+            "variance_pre_mean": 0.014222222222222225
+          },
+          {
+            "debate_id": "b4b7f135-fb74-41e2-aa78-3394c764c373",
+            "n_rounds": 7,
+            "agreement_trajectory": [
+              1.0,
+              0.8,
+              0.6
+            ],
+            "outcome_label": "deadlocked",
+            "autocorr_pre_mean": -0.3333333333333333,
+            "variance_pre_mean": 0.012666666666666668
+          }
+        ]
+      }
+    },
+    "sensitivity_analysis": {
+      "full_dataset_vs_clean_dataset": {
+        "permutation_autocorr_p_full": 0.5541445855414459,
+        "permutation_autocorr_p_clean": NaN,
+        "permutation_variance_p_full": 0.0993900609939006,
+        "permutation_variance_p_clean": 0.256974302569743,
+        "csd_threshold_auc_full": 0.5,
+        "csd_threshold_auc_clean": 0.5,
+        "naive_agreement_auc_full": 0.5571428571428572,
+        "naive_agreement_auc_clean": 0.6,
+        "spectral_model_auc_full": 0.5761904761904761,
+        "spectral_model_auc_clean": 0.16666666666666666,
+        "sprt_auc_full": 0.5904761904761905,
+        "sprt_auc_clean": 0.6666666666666666,
+        "max_abs_auc_difference": 0.4095238095238095,
+        "p_value_crosses_005_boundary": false,
+        "robust_to_label_noise": false,
+        "note": "Compares the full dataset against the dataset with critical_expert_memory_simple_voting excluded (that config carries the ~24% decisionSuccess/final-answer label mismatch documented in the dataset dep..."
+      }
+    },
+    "dataset_metadata": {
+      "dataset_rows": 665,
+      "n_debates": 95,
+      "n_converged": 45,
+      "n_collapsed": 45,
+      "n_deadlocked": 5,
+      "mean_rounds_per_debate": 7.0,
+      "window_size_autocorr": 2,
+      "window_size_variance": 3,
+      "permutation_replicates": 10000,
+      "block_length_permutation": 2,
+      "train_test_split": "70-30 stratified by outcome_label",
+      "bootstrap_replicates": 1000,
+      "analysis_timestamp": "2026-08-01 15:39:17 UTC",
+      "note_autocorr_sample_sparsity": "agreement_score is a discretized fraction (k-of-n_agents matching the modal solution), so it is frequently constant across a debate's early rounds; the lag-1 autocorrelation statistic is only defined ...",
+      "note_cascade_vs_false_consensus": "Dataset labels only distinguish converged/collapsed/deadlocked; no cascade-vs-false-consensus sub-label is present in metadata, so the plan's step-17 collapse-mode breakdown could not be run and is om..."
+    }
+  },
+  "datasets": [
+    {
+      "dataset": "Multi-Agent-LLMs/DEBATE (derived: CSD early-warning analysis)",
+      "examples": [
+        {
+          "input": "{\"debate_id\": \"0dc56789-0e0c-4b20-bfa7-8bab2af32e89\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"...",
+          "output": "converged",
+          "metadata_debate_id": "0dc56789-0e0c-4b20-bfa7-8bab2af32e89",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "collapse",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"111cdd33-397d-4f96-bb83-71286c33e323\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, ...",
+          "output": "collapsed",
+          "metadata_debate_id": "111cdd33-397d-4f96-bb83-71286c33e323",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "converged",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"11c095bb-9944-46b9-b99b-4e925c573a9d\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"...",
+          "output": "converged",
+          "metadata_debate_id": "11c095bb-9944-46b9-b99b-4e925c573a9d",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "collapse",
+          "predict_sprt": "converged"
+        }
+      ]
+    }
+  ]
+}

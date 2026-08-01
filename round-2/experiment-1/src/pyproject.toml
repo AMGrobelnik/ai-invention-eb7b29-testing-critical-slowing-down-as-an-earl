@@ -1,0 +1,19 @@
+[project]
+name = "gen-art-experiment-1"
+version = "0.1.0"
+description = "CSD early-warning statistics reproduction on the multi-agent debate collapse dataset"
+requires-python = ">=3.12"
+dependencies = [
+    "loguru==0.7.3",
+    "numpy==2.5.1",
+    "pandas==3.0.5",
+    "scipy==1.18.0",
+    "scikit-learn==1.9.0",
+    "statsmodels==0.14.6",
+    "matplotlib==3.11.1",
+    "psutil==7.2.2",
+    "tabulate==0.10.0",
+]
+
+[tool.uv]
+package = false

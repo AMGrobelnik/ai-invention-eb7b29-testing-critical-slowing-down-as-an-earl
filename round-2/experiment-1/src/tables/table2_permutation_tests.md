@@ -1,0 +1,6 @@
+| dataset       | statistic       |   p_value |   effect_size_cohens_d |   mean_diff |   ci_95_low |   ci_95_high |
+|:--------------|:----------------|----------:|-----------------------:|------------:|------------:|-------------:|
+| full_dataset  | autocorrelation |   0.55414 |                 0.5125 |      0.3636 |     -0.4417 |       1.169  |
+| full_dataset  | variance        |   0.09939 |                 0.1447 |      0.0012 |     -0.0003 |       0.0027 |
+| clean_dataset | autocorrelation | nan       |               nan      |    nan      |    nan      |     nan      |
+| clean_dataset | variance        |   0.25697 |                 0.3961 |      0.0035 |     -0.0021 |       0.0092 |

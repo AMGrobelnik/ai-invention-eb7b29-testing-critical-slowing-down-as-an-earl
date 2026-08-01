@@ -1,0 +1,370 @@
+[
+  {
+    "debate_id": "d48d937c-a6c4-42b7-973b-8cd1f91e9e5e",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "83fa05b1-8414-4010-9d54-db12b6ec666a",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "1fea5fa0-2b60-4c07-8761-d07d5d308129",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "a8e229d0-1de6-4e8f-a116-ebd0205473eb",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "efc9b98b-3b47-4f89-904e-4c6e6b7269ea",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "0dc56789-0e0c-4b20-bfa7-8bab2af32e89",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "0ad417c8-9ec3-41fd-b59e-532108e50da4",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "7cf177f5-3b15-45af-ae62-0aaa20d77c62",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "35f4f364-59c5-4c89-8bd1-90c26e71795b",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "0fbc7dc6-2c1d-4cf7-8f74-833d32d5012f",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "f0fc7c9c-59e2-4479-bdd7-f952c631bed0",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "a56c6f57-d9b1-4704-93ab-3c8c09d0d119",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "7a8469a6-4654-4dd5-9a9f-a362a8cc0484",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 0.9047714285714286
+  },
+  {
+    "debate_id": "c607409c-4c6f-482c-bc9f-a3ea9f9ab2c4",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 0.9523857142857144
+  },
+  {
+    "debate_id": "ececd2bf-85b0-4475-83e4-fbc31a421f4c",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 0.9047714285714286
+  },
+  {
+    "debate_id": "f3e978ac-adc8-4788-9f96-aab071b4769f",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "3e13ff4a-d52c-420b-8404-b71d6408966f",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 0.7143142857142857
+  },
+  {
+    "debate_id": "28a1c93c-d641-4085-bbdd-3f827934e906",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 0.9047714285714286
+  },
+  {
+    "debate_id": "9d7ab3b0-501c-4fa7-8102-26b60c9e27d8",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 0.7143142857142857
+  },
+  {
+    "debate_id": "2f60124c-b187-47a9-af19-7acf1452e575",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "256a9880-a3c5-4066-871d-9fcf7ff3a5a0",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "ad52c0a2-9963-428e-850f-15a63ba7dd6c",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "ee198827-fd89-4eb7-8ca5-a8659aeedd7b",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "d9b3cf9f-7b35-4c9b-9080-b0f1e8cb555f",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "defd4ee1-b948-465e-92fd-b1575be76333",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "a04cd5b7-d262-4a46-b49f-08d6877dedbe",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "a97a7b79-0535-46c6-820b-9e46127f90f1",
+    "outcome": "converged",
+    "error_type": "false_collapse_prediction",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "0d142f10-780e-47d6-9ff4-fc17fa1b5443",
+    "outcome": "deadlocked",
+    "error_type": "missed_collapse",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 0.8857142857142856
+  },
+  {
+    "debate_id": "d56b72ec-7cf5-485c-8029-38b895d1fa79",
+    "outcome": "collapsed",
+    "error_type": "missed_collapse",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "ca2fda9f-7c2e-4550-91a4-905a29f98291",
+    "outcome": "collapsed",
+    "error_type": "missed_collapse",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "137042a3-c972-4629-8404-5ae12e4ed4cc",
+    "outcome": "collapsed",
+    "error_type": "missed_collapse",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "42ad4989-b738-4997-9a4e-b8e4d82c16c6",
+    "outcome": "collapsed",
+    "error_type": "missed_collapse",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 0.9523857142857143
+  },
+  {
+    "debate_id": "98bcff56-013e-4ed1-b987-86abaff6978f",
+    "outcome": "collapsed",
+    "error_type": "missed_collapse",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "63c3ee62-3345-45d5-9521-28a1f39f5c99",
+    "outcome": "collapsed",
+    "error_type": "missed_collapse",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "eea56175-8d4a-41e1-baa5-ab0bb5863389",
+    "outcome": "collapsed",
+    "error_type": "missed_collapse",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 0.8095428571428572
+  },
+  {
+    "debate_id": "6abb40d2-8862-4488-82b7-57b42effb442",
+    "outcome": "collapsed",
+    "error_type": "missed_collapse",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "481f99b4-8d71-4b11-aa41-d56fea833ecb",
+    "outcome": "collapsed",
+    "error_type": "missed_collapse",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "7773d810-b324-4e07-8cf3-fdbd55d2ffdb",
+    "outcome": "collapsed",
+    "error_type": "missed_collapse",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "322162e1-1acb-493c-bcd4-1881cb9ec8a9",
+    "outcome": "collapsed",
+    "error_type": "missed_collapse",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "c5912fda-c6aa-4d03-b614-d35b7265c534",
+    "outcome": "collapsed",
+    "error_type": "missed_collapse",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "b69240c5-e3a6-40d6-a456-0ab0bbba19dc",
+    "outcome": "collapsed",
+    "error_type": "missed_collapse",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 0.6857142857142857
+  },
+  {
+    "debate_id": "0562ec15-1ade-4310-b9be-ef5eb6a612ed",
+    "outcome": "collapsed",
+    "error_type": "missed_collapse",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "d57126b2-36ff-41b5-9c63-46d773a55325",
+    "outcome": "collapsed",
+    "error_type": "missed_collapse",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 0.9523857142857144
+  },
+  {
+    "debate_id": "bd05efda-e1e6-44b7-8a51-b77cad8e5697",
+    "outcome": "collapsed",
+    "error_type": "missed_collapse",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "37301482-a399-4e63-ac38-3d2924844fa3",
+    "outcome": "collapsed",
+    "error_type": "missed_collapse",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  },
+  {
+    "debate_id": "355722d8-1082-4663-9523-274b22450354",
+    "outcome": "collapsed",
+    "error_type": "missed_collapse",
+    "n_rounds": 7,
+    "n_models": 1,
+    "mean_agreement": 1.0
+  }
+]

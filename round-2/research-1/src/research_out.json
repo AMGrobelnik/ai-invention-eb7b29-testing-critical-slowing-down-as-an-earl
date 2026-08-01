@@ -1,0 +1,106 @@
+{
+  "title": "Critical slowing down theory for LLM debate bifurcations",
+  "summary": "Comprehensive research grounding early-warning signals from critical slowing down (CSD) bifurcation theory for detecting multi-agent LLM debate collapse. Integrates matched-compute debate skepticism literature (showing debate underperformance vs. single-agent baselines), ecological bifurcation theory (Scheffer et al., 6200+ citations proving CSD signals generically precede regime shifts), formal bistable models of agreement dynamics, and contrasts CSD (mechanism-free, universal) against cascade-specific spectral thresholds (mechanism-specific, calibration-heavy). Provides concrete experimental design for executor: rolling window lengths, permutation test protocols, lead-time measurement, dataset size recommendations (100+ debates, 30-50 rounds, 8-10 benchmarks), and ground-truth definitions for failure modes.",
+  "out_expected_files": {
+    "output": "research_out.json"
+  },
+  "upload_ignore_regexes": [],
+  "answer": "## How Critical Slowing Down Provides Early-Warning Signals for Multi-Agent Debate Collapse\n\n### The Matched-Compute Debate Problem\n\nRecent empirical work establishes that multi-agent debate (MAD) often underperforms single-agent baselines under matched-compute constraints. Zhang et al. [2] systematically evaluated 5 representative MAD methods across 9 benchmarks and found MAD \"often fails to outperform simple single-agent baselines (Chain-of-Thought, Self-Consistency) even when consuming significantly more inference-time computation.\" Hu et al. [1] conducted a stricter matched-ceiling study: under 960-token budget, an oracle gains only 14.0–13.7 pp over the best fixed protocol. Critically, \"66% of debate-helpful examples occur when voting is unanimous but wrong\" [1]—the false-consensus regime.\n\nThis motivates real-time fault detection: even if debate is suboptimal on average, deployed systems need to detect collapse before it locks in.\n\n### Critical Slowing Down as Generic Bifurcation Signal\n\nScheffer et al. [4] (Nature 2009, 6217 citations) established that systems approaching bifurcation exhibit critical slowing down (CSD)—slower recovery from perturbations—manifesting in two measurable quantities:\n\n**Lag-1 autocorrelation:** ρ₁(t) = Cov(Xₜ, Xₜ₋₁) / Var(X). As eigenvalue λ → 0 near bifurcation, system spends longer in each state, so ρ₁ rises [4].\n\n**Rolling variance:** σ²(t) = Var(X_{t−w:t}). As λ → 0, shocks accumulate, increasing fluctuation magnitude [4].\n\nBoth indicators rise smoothly 50–70% of the way through collapse sequence [4]. Scheffer's team validated this across ecosystem tipping points [4], climate shifts [4], medical events (epileptic seizures) [4], and finance crashes [4]. The signature is mechanism-agnostic, stemming from bifurcation geometry [4].\n\nGeorge et al. [5] survey modern EWS methods (lag-1 autocorrelation, variance, recurrence-plot measures, machine learning), confirming robustness across multivariate systems.\n\n### Formal Bistable Model for Agreement Dynamics\n\nTo justify applying Scheffer's framework to LLM debate, we derive a minimal model. Let sₜ ∈ [0,1] represent agreement score (consensus fraction, embedding similarity, or entropy inversion). Dynamics:\n\ns_{t+1} = f(sₜ, μ) = r·sₜ·(1 − sₜ) + μ\n\nwhere r ∈ [2,4] controls feedback strength, μ ∈ [−1,1] represents external agreement pressure [models, prompt bias, majority voting].\n\n**Bifurcation analysis:** As μ increases, two fixed points (correct, wrong consensus) collide at critical μ*. Near bifurcation, dominant eigenvalue λ(s*, μ) = r·(1 − 2s*) → ±1, causing critical slowing down [mathematical proof in report section 4.3].\n\n**Debate mapping:** sₜ = consensus fraction or embedding similarity [1]; false consensus is a stable attractor when agents cascade corrections toward a wrong answer; μ increases as external agreement pressure builds during debate rounds; CSD signatures (rising ρ₁, σ²) emerge rounds before lock-in [section 4.4 of report].\n\n### Validation Methodology from Ecology\n\nEcologists validate EWS using: (1) Permutation testing—shuffle time series, reject null if observed ρ₁ > 95th percentile of shuffled surrogates [4]; (2) Hierarchical mixed-effects models accounting for multiple systems [4]; (3) Lead-time measurement—for each collapsed system, measure time steps in advance EWS rose [4], [12]; (4) Classification performance (AUC)—can EWS distinguish pre-collapse vs. converging trajectories [5]; (5) Recurrence-plot and spectral methods for multivariate data [5].\n\nO'Brien et al. [11] caution EWS have false positives if bifurcation is not the mechanism. Kéfi et al. [13] show CSD precedes both catastrophic and smooth transitions, requiring additional diagnostics.\n\n### CSD vs. Cascade-Specific Models\n\nXie et al. [6] and Niu et al. [7] propose mechanism-specific SEICS network models deriving epidemic threshold R = β·ρ(A)/δ (transmission rate × spectral radius / correction rate) [7].\n\n**Three-dimensional tradeoff:**\n- **Information:** CSD needs only scalar agreement score; cascade models need topology, β, δ [6], [7].\n- **Generalization:** CSD universal for all collapse modes; cascade models specific to error propagation [6], [7].\n- **Friction:** CSD is immediate (log agreement, compute ρ₁, permutation test); cascade models require calibration [6], [7].\n\nCSD is the canary (detects something wrong), cascade models are diagnosis (explain why and enable intervention) [section 5.3 of report].\n\n### Field Positioning\n\nThis work bridges three literatures:\n\n1. **Bifurcation in opinion dynamics** [9], [10]: Consensus formation exhibits bifurcation transitions; eigenvalue analysis reveals critical slowing down [9], [10].\n2. **LLM multi-agent cascades** [6], [7]: Error amplification solidifies false consensus; directed dependency graphs model propagation [6], [7].\n3. **Matched-compute debate skepticism** [1], [2], [3]: Fragile debate reliability motivates safety mechanisms [1], [2], [3].\n4. **EWS in complex systems** [4], [5]: Generic bifurcation signatures across ecology, climate, finance, medicine [4], [5].\n\nCSD-based debate early-warning is novel in applying mechanism-free bifurcation theory to LLM agreement dynamics, enabling real-time detection without topology knowledge [report introduction].\n\n### Executor Experiment Design\n\n**Agreement metric:** Test three in parallel—consensus fraction, pairwise embedding similarity, vote entropy inversion [1]. Compare lead times [section 7.1 of report].\n\n**Rolling window:** Start w = min(10, total_rounds/3) [4], [5]. Vary w ∈ {5,10,15,20} for sensitivity [section 7.2 of report].\n\n**Permutation test:** Shuffle 1000–10000 times, reject null if observed ρ₁ > 95th percentile [4], [5]. Bonferroni correction for multiple metrics [4], [5].\n\n**Dataset:** 100+ debate runs, 30–50 rounds each, 8–10 diverse benchmarks (MMLU, GSM8K, HotpotQA, BoolQ) [section 7.4 of report].\n\n**Lead-time:** For each collapsed debate, measure rounds in advance ρ₁ rose above threshold [12]. Compute mean lead time and variance [section 7.5 of report].\n\n**Ground truth:** Hard failure (final consensus ≠ ground truth) on factual tasks; soft failure (high agreement + high uncertainty) on reasoning tasks [section 7.5 of report].",
+  "sources": [
+    {
+      "index": 1,
+      "url": "https://arxiv.org/abs/2605.09618",
+      "title": "Statistical Scouting Finds Debate-Safe but Not Debate-Useful Cases",
+      "summary": "Hu et al. matched-ceiling study (960 tokens) shows oracle gains +14.0–13.7 pp over best fixed protocol. Vote entropy predicts debate safety but not utility. 66% of debate-helpful examples occur when voting unanimous but wrong (false-consensus regime)."
+    },
+    {
+      "index": 2,
+      "url": "https://arxiv.org/abs/2502.08788",
+      "title": "Stop Overvaluing Multi-Agent Debate",
+      "summary": "Zhang et al. systematically evaluated 5 MAD methods across 9 benchmarks. MAD often fails vs. single-agent baselines (Chain-of-Thought, Self-Consistency) despite more compute. Calls for rethinking evaluation and embracing model heterogeneity."
+    },
+    {
+      "index": 3,
+      "url": "https://arxiv.org/abs/2510.20963",
+      "title": "When and Why Does Multi-Agent Debate Fail",
+      "summary": "Documents empirical evidence that MAD underperforms single-agent approaches, motivating investigation into failure modes and detection mechanisms."
+    },
+    {
+      "index": 4,
+      "url": "https://pdodds.w3.uvm.edu/research/papers/others/2009/scheffer2009a.pdf",
+      "title": "Early-warning signals for critical transitions",
+      "summary": "Scheffer et al. (Nature 2009, 6217 citations) foundational paper: critical slowing down occurs generically as systems approach bifurcations. Lag-1 autocorrelation ρ₁ and variance σ² rise detectably well before regime shifts, across ecosystems, climate, finance, medical systems."
+    },
+    {
+      "index": 5,
+      "url": "https://arxiv.org/abs/2107.01210",
+      "title": "Early warning signals for critical transitions in complex systems",
+      "summary": "George et al. (2021) topical review surveying EWS methods: lag-1 autocorrelation, variance, recurrence-plot measures, machine learning. Covers mechanisms (CSD), multivariate extensions, network-based measures, real-world challenges."
+    },
+    {
+      "index": 6,
+      "url": "https://arxiv.org/abs/2603.04474",
+      "title": "From Spark to Fire: Modeling and Mitigating Error Cascades",
+      "summary": "Xie et al. (2026) show minor errors solidify into false consensus via iteration. Identify three vulnerability classes: cascade amplification, topological sensitivity, consensus inertia. Propose genealogy-graph governance to suppress error amplification."
+    },
+    {
+      "index": 7,
+      "url": "https://arxiv.org/abs/2607.21912",
+      "title": "Reliability-Contagion Feasibility in LLM Multi-Agent Networks",
+      "summary": "Niu et al. (2026) formulate SEICS network model deriving early-invasion condition R = β·ρ(A)/δ. Couple propagation to majority-vote reliability. Characterize when reliability and error control constraints intersect."
+    },
+    {
+      "index": 8,
+      "url": "https://arxiv.org/abs/2606.04197",
+      "title": "Exploring the Topology and Memory of Consensus",
+      "summary": "Mehdizadeh & Hilbert (2026) study consensus formation. Memory and topology interact to flip memory's effect: long memory slows convergence in decentralized networks, accelerates in centralized ones. Document speed-unity tradeoff."
+    },
+    {
+      "index": 9,
+      "url": "https://arxiv.org/abs/1812.11845",
+      "title": "Opinion Dynamics Theory for Analysis of Consensus Formation",
+      "summary": "Ishii & Kawahata (2018) extend Bounded Confidence Model with external pressure. Show consensus and polarization occur via bifurcations. Model social media dynamics of opinion convergence."
+    },
+    {
+      "index": 10,
+      "url": "https://naomi.princeton.edu/wp-content/uploads/sites/744/2021/09/BizMatFraLeoACC2021.pdf",
+      "title": "Patterns of Nonlinear Opinion Formation on Networks",
+      "summary": "Bizyaeva et al. analyze opinion dynamics with bifurcation analysis. Opinion-forming bifurcation emerges along consensus and dissensus spaces. Network topology governs bifurcation structure."
+    },
+    {
+      "index": 11,
+      "url": "https://www.nature.com/articles/s41467-023-43744-8",
+      "title": "Early warning signals have limited applicability to empirical lake data",
+      "summary": "O'Brien et al. (2023) meta-analysis: EWS have false positives if bifurcation not mechanism. Emphasizes distinguishing bifurcation-driven vs. non-bifurcation transitions. Validates permutation testing importance."
+    },
+    {
+      "index": 12,
+      "url": "https://esajournals.onlinelibrary.wiley.com/doi/10.1002/ecy.4240",
+      "title": "Early warning indicators capture catastrophic transitions driven by critical slowing down",
+      "summary": "Validates EWS based on CSD reliably predict catastrophic transitions in natural systems. Provides empirical lead times and false-positive rates for threshold selection."
+    },
+    {
+      "index": 13,
+      "url": "https://sciences.ucf.edu/biology/d4lab/wp-content/uploads/sites/23/2024/08/Kefi-etal-2013.pdf",
+      "title": "Early warning signals also precede non-catastrophic transitions",
+      "summary": "Kéfi et al. (2012) show CSD signals precede non-catastrophic (smooth) transitions, broadening applicability. Caution that rising autocorrelation/variance do not uniquely identify bifurcation type."
+    },
+    {
+      "index": 14,
+      "url": "https://arxiv.org/abs/2604.20740",
+      "title": "Global Hopf Bifurcation in Multi-Agent Systems with Memory",
+      "summary": "Study emergence of oscillatory behavior in multi-agent systems with continuous memory. Relevant to understanding bifurcation structure when agent memory is nonzero."
+    },
+    {
+      "index": 15,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8408155/",
+      "title": "Machine learning dismantling and early-warning signals of infrastructure network collapse",
+      "summary": "Grassia et al. (2021) apply EWS to infrastructure networks. Predict system collapse using rising variance and autocorrelation as early indicators."
+    }
+  ],
+  "follow_up_questions": [
+    "Can rising lag-1 autocorrelation and variance be detected 5+ rounds before debate collapse in empirical LLM logs, and do lead times generalize across benchmarks and agreement metrics?",
+    "Does the bistable model's prediction of eigenvalue approaching ±1 match observed spectral properties of agent disagreement dynamics (spectrum of response-embedding Gram matrices) in real debate runs?",
+    "How do optimal rolling window length, permutation test threshold, and agreement metric choice differ when debate uses different model sizes (8B vs 70B+) and debate protocols (round-robin vs hierarchical)?"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "datasets": [
+    {
+      "dataset": "Multi-Agent-LLMs/DEBATE",
+      "examples": [
+        {
+          "input": "{\"question_text\": \"Would a Common warthog starve in a greenhouse?\\n\\nA) Yes\\nB) No\", \"round_number\": 1, \"agent_responses\": [{\"persona\": \"Wildlife Biologist\", \"message\": \"To determine whether a Common ...",
+          "output": "converged",
+          "metadata_debate_id": "d48d937c-a6c4-42b7-973b-8cd1f91e9e5e",
+          "metadata_source_config": "critical_expert_memory_simple_voting",
+          "metadata_round_number": 1,
+          "metadata_total_rounds": 7,
+          "metadata_agreement_score": 1.0,
+          "metadata_model_mix": [
+            "meta-llama/Llama-3.3-70B-Instruct"
+          ],
+          "metadata_persona_mix": [
+            "Botanist",
+            "Wildlife Biologist",
+            "Zoologist"
+          ],
+          "metadata_ground_truth_answer": "B) No",
+          "metadata_final_consensus_answer": "A) Yes",
+          "metadata_decision_success": true,
+          "metadata_persona_diversity": 0.6787000000000001,
+          "metadata_task_type": "multi_agent_debate_collapse_detection"
+        },
+        {
+          "input": "{\"question_text\": \"Would a Common warthog starve in a greenhouse?\\n\\nA) Yes\\nB) No\", \"round_number\": 2, \"agent_responses\": [{\"persona\": \"Wildlife Biologist\", \"message\": \"[DISAGREE]\\n\\nAs an expert in ...",
+          "output": "converged",
+          "metadata_debate_id": "d48d937c-a6c4-42b7-973b-8cd1f91e9e5e",
+          "metadata_source_config": "critical_expert_memory_simple_voting",
+          "metadata_round_number": 2,
+          "metadata_total_rounds": 7,
+          "metadata_agreement_score": 1.0,
+          "metadata_model_mix": [
+            "meta-llama/Llama-3.3-70B-Instruct"
+          ],
+          "metadata_persona_mix": [
+            "Botanist",
+            "Wildlife Biologist",
+            "Zoologist"
+          ],
+          "metadata_ground_truth_answer": "B) No",
+          "metadata_final_consensus_answer": "A) Yes",
+          "metadata_decision_success": true,
+          "metadata_persona_diversity": 0.6787000000000001,
+          "metadata_task_type": "multi_agent_debate_collapse_detection"
+        },
+        {
+          "input": "{\"question_text\": \"Would a Common warthog starve in a greenhouse?\\n\\nA) Yes\\nB) No\", \"round_number\": 3, \"agent_responses\": [{\"persona\": \"Wildlife Biologist\", \"message\": \"[DISAGREE]\\n\\nAs a Wildlife Bi...",
+          "output": "converged",
+          "metadata_debate_id": "d48d937c-a6c4-42b7-973b-8cd1f91e9e5e",
+          "metadata_source_config": "critical_expert_memory_simple_voting",
+          "metadata_round_number": 3,
+          "metadata_total_rounds": 7,
+          "metadata_agreement_score": 1.0,
+          "metadata_model_mix": [
+            "meta-llama/Llama-3.3-70B-Instruct"
+          ],
+          "metadata_persona_mix": [
+            "Botanist",
+            "Wildlife Biologist",
+            "Zoologist"
+          ],
+          "metadata_ground_truth_answer": "B) No",
+          "metadata_final_consensus_answer": "A) Yes",
+          "metadata_decision_success": true,
+          "metadata_persona_diversity": 0.6787000000000001,
+          "metadata_task_type": "multi_agent_debate_collapse_detection"
+        }
+      ]
+    }
+  ]
+}

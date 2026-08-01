@@ -1,0 +1,1254 @@
+{
+  "metadata": {
+    "method_name": "CSD early-warning statistics for multi-agent debate collapse",
+    "description": "Permutation tests, GEE hierarchical model, and 4 binary classifiers (CSD-threshold, naive-agreement baseline, spectral-contagion, SPRT) comparing early-round autocorrelation/variance rise before debate collapse vs. convergence.",
+    "full_results": {
+      "label": "full_dataset",
+      "n_rows": 665,
+      "n_debates": 95,
+      "n_converged": 45,
+      "n_collapsed": 45,
+      "n_deadlocked": 5,
+      "permutation_tests": {
+        "autocorrelation": {
+          "p_value": 0.5541445855414459,
+          "effect_size_cohens_d": 0.5124707424683161,
+          "mean_diff": 0.36363636363636365,
+          "ci_95": [
+            -0.44170941190468826,
+            1.1689821391774156
+          ],
+          "n_collapse_group": 11,
+          "n_converged_group": 4,
+          "n_permutations": 10000,
+          "block_length": 2
+        },
+        "variance": {
+          "p_value": 0.0993900609939006,
+          "effect_size_cohens_d": 0.14471613511902903,
+          "mean_diff": 0.0011886485511111104,
+          "ci_95": [
+            -0.0002930336206278651,
+            0.0026703307228500856
+          ],
+          "n_collapse_group": 250,
+          "n_converged_group": 225,
+          "n_permutations": 10000,
+          "block_length": 2
+        }
+      },
+      "hierarchical_model": {
+        "method": "GEE (Binomial family, exchangeable working correlation, debate-level clustering) \u2014 substituted for glmer/lme4 per fallback_plan (pure-Python glmm unavailable)",
+        "coefficients": {
+          "intercept": {
+            "estimate": 0.22496543781831957,
+            "se": 0.6417667787468214,
+            "z": 0.3505407965454519,
+            "p": 0.7259328787095608,
+            "ci_95": [
+              -1.0328974485254503,
+              1.4828283241620897
+            ]
+          },
+          "round_number": {
+            "estimate": 0.0031181314872140466,
+            "se": 0.02894530527236865,
+            "z": 0.10772494737482118,
+            "p": 0.914213879524323,
+            "ci_95": [
+              -0.05361466684662851,
+              0.059850929821056595
+            ]
+          },
+          "autocorr_zscore": {
+            "estimate": 0.07514788240502794,
+            "se": 0.2366576149921933,
+            "z": 0.3175384084197201,
+            "p": 0.7508351005116713,
+            "ci_95": [
+              -0.3887010429796709,
+              0.5389968077897268
+            ]
+          },
+          "variance_zscore": {
+            "estimate": -0.08190245787887517,
+            "se": 0.26373873772892553,
+            "z": -0.31054390638304974,
+            "p": 0.7561473761617087,
+            "ci_95": [
+              -0.5988303838275693,
+              0.4350254680698189
+            ]
+          }
+        },
+        "within_cluster_exchangeable_correlation": 1.0260429367751498,
+        "pseudo_r2_mcfadden_style": -0.0856110440407043,
+        "n_observations": 19,
+        "n_clusters_debates": 11
+      },
+      "classifiers": {
+        "csd_threshold": {
+          "auc": 0.5,
+          "auc_ci_95": [
+            0.5,
+            0.5
+          ],
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "ppv": NaN,
+          "npv": 0.4827586206896552,
+          "tp": 0,
+          "fp": 0,
+          "tn": 14,
+          "fn": 15
+        },
+        "naive_agreement": {
+          "auc": 0.5571428571428572,
+          "auc_ci_95": [
+            0.4141666666666667,
+            0.7
+          ],
+          "sensitivity": 0.26666666666666666,
+          "specificity": 0.8571428571428571,
+          "ppv": 0.6666666666666666,
+          "npv": 0.5217391304347826,
+          "tp": 4,
+          "fp": 2,
+          "tn": 12,
+          "fn": 11
+        },
+        "spectral_model": {
+          "auc": 0.5761904761904761,
+          "auc_ci_95": [
+            0.38565476190476194,
+            0.778690476190476
+          ],
+          "sensitivity": 0.6666666666666666,
+          "specificity": 0.5714285714285714,
+          "ppv": 0.625,
+          "npv": 0.6153846153846154,
+          "tp": 10,
+          "fp": 6,
+          "tn": 8,
+          "fn": 5
+        },
+        "sprt": {
+          "auc": 0.5904761904761905,
+          "auc_ci_95": [
+            0.4452380952380952,
+            0.735892857142857
+          ],
+          "sensitivity": 0.26666666666666666,
+          "specificity": 0.8571428571428571,
+          "ppv": 0.6666666666666666,
+          "npv": 0.5217391304347826,
+          "fp": 2,
+          "tn": 12,
+          "fn": 11
+        }
+      },
+      "lead_time_analysis": {
+        "csd_threshold": {
+          "mean_lead_time_true_positive": NaN,
+          "sd_lead_time_true_positive": NaN,
+          "n_true_positive": 0,
+          "mean_lead_time_true_negative": 5.0,
+          "sd_lead_time_true_negative": 0.0,
+          "n_true_negative": 14,
+          "mean_lead_time_false_positive": NaN,
+          "sd_lead_time_false_positive": NaN,
+          "n_false_positive": 0,
+          "mean_lead_time_false_negative": 5.0,
+          "sd_lead_time_false_negative": 0.0,
+          "n_false_negative": 15
+        },
+        "naive_agreement": {
+          "mean_lead_time_true_positive": 5.0,
+          "sd_lead_time_true_positive": 0.0,
+          "n_true_positive": 4,
+          "mean_lead_time_true_negative": 5.0,
+          "sd_lead_time_true_negative": 0.0,
+          "n_true_negative": 12,
+          "mean_lead_time_false_positive": 5.0,
+          "sd_lead_time_false_positive": 0.0,
+          "n_false_positive": 2,
+          "mean_lead_time_false_negative": 5.0,
+          "sd_lead_time_false_negative": 0.0,
+          "n_false_negative": 11
+        },
+        "spectral_model": {
+          "mean_lead_time_true_positive": 5.0,
+          "sd_lead_time_true_positive": 0.0,
+          "n_true_positive": 10,
+          "mean_lead_time_true_negative": 5.0,
+          "sd_lead_time_true_negative": 0.0,
+          "n_true_negative": 8,
+          "mean_lead_time_false_positive": 5.0,
+          "sd_lead_time_false_positive": 0.0,
+          "n_false_positive": 6,
+          "mean_lead_time_false_negative": 5.0,
+          "sd_lead_time_false_negative": 0.0,
+          "n_false_negative": 5
+        },
+        "sprt": {
+          "mean_lead_time_true_positive": 4.0,
+          "sd_lead_time_true_positive": 2.449489742783178,
+          "n_true_positive": 4,
+          "mean_lead_time_true_negative": 1.0,
+          "sd_lead_time_true_negative": 0.0,
+          "n_true_negative": 12,
+          "mean_lead_time_false_positive": 6.0,
+          "sd_lead_time_false_positive": 0.0,
+          "n_false_positive": 2,
+          "mean_lead_time_false_negative": 1.0,
+          "sd_lead_time_false_negative": 0.0,
+          "n_false_negative": 11
+        }
+      },
+      "deadlock_analysis": {
+        "n_deadlocked": 5,
+        "claim_scope": "n=5 deadlocked cases are insufficient for any mode-specific statistical claim; deadlock detection is deferred and excluded from the classifier train/test evaluation's inferential claims (it is retained inside collapse_any as a descriptive superset member only).",
+        "deadlock_cases": [
+          {
+            "debate_id": "0d142f10-780e-47d6-9ff4-fc17fa1b5443",
+            "n_rounds": 7,
+            "agreement_trajectory": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.8,
+              0.8,
+              0.6
+            ],
+            "outcome_label": "deadlocked",
+            "autocorr_pre_mean": NaN,
+            "variance_pre_mean": 0.003555555555555554
+          },
+          {
+            "debate_id": "25208a59-7750-46af-a915-d46ed5415fed",
+            "n_rounds": 7,
+            "agreement_trajectory": [
+              1.0,
+              1.0,
+              1.0,
+              0.6,
+              0.8,
+              0.8,
+              0.6
+            ],
+            "outcome_label": "deadlocked",
+            "autocorr_pre_mean": -1.0,
+            "variance_pre_mean": 0.014222222222222225
+          },
+          {
+            "debate_id": "b4b7f135-fb74-41e2-aa78-3394c764c373",
+            "n_rounds": 7,
+            "agreement_trajectory": [
+              1.0,
+              0.8,
+              0.6,
+              0.8,
+              0.6,
+              0.6,
+              0.6
+            ],
+            "outcome_label": "deadlocked",
+            "autocorr_pre_mean": -0.3333333333333333,
+            "variance_pre_mean": 0.012666666666666668
+          },
+          {
+            "debate_id": "c13715e1-95ab-402b-b1af-72f53382df04",
+            "n_rounds": 7,
+            "agreement_trajectory": [
+              0.6,
+              0.6,
+              1.0,
+              0.6,
+              0.6,
+              0.6,
+              0.6
+            ],
+            "outcome_label": "deadlocked",
+            "autocorr_pre_mean": -1.0,
+            "variance_pre_mean": 0.021333333333333336
+          },
+          {
+            "debate_id": "f4e0490c-6c5f-4687-82a8-914dcf8aab90",
+            "n_rounds": 7,
+            "agreement_trajectory": [
+              0.3333,
+              0.3333,
+              0.3333,
+              0.3333,
+              0.3333,
+              0.3333,
+              0.3333
+            ],
+            "outcome_label": "deadlocked",
+            "autocorr_pre_mean": NaN,
+            "variance_pre_mean": 0.0
+          }
+        ]
+      }
+    },
+    "clean_results": {
+      "label": "clean_dataset",
+      "n_rows": 357,
+      "n_debates": 51,
+      "n_converged": 2,
+      "n_collapsed": 45,
+      "n_deadlocked": 4,
+      "permutation_tests": {
+        "autocorrelation": {
+          "p_value": NaN,
+          "effect_size_cohens_d": NaN,
+          "mean_diff": NaN,
+          "ci_95": [
+            NaN,
+            NaN
+          ],
+          "n_collapse_group": 11,
+          "n_converged_group": 0,
+          "n_permutations": 10000,
+          "block_length": 2
+        },
+        "variance": {
+          "p_value": 0.256974302569743,
+          "effect_size_cohens_d": 0.39608708984770746,
+          "mean_diff": 0.0035220105963718823,
+          "ci_95": [
+            -0.002106277607116006,
+            0.00915029879985977
+          ],
+          "n_collapse_group": 245,
+          "n_converged_group": 10,
+          "n_permutations": 10000,
+          "block_length": 2
+        }
+      },
+      "hierarchical_model": {
+        "error": "insufficient data for GEE fit (n_debates=6, n_outcome_classes=1) \u2014 expected only at smoke-test scale"
+      },
+      "classifiers": {
+        "csd_threshold": {
+          "auc": 0.5,
+          "auc_ci_95": [
+            0.5,
+            0.5
+          ],
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "ppv": NaN,
+          "npv": 0.0625,
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 15
+        },
+        "naive_agreement": {
+          "auc": 0.6,
+          "auc_ci_95": [
+            0.5,
+            0.7
+          ],
+          "sensitivity": 0.2,
+          "specificity": 1.0,
+          "ppv": 1.0,
+          "npv": 0.07692307692307693,
+          "tp": 3,
+          "fp": 0,
+          "tn": 1,
+          "fn": 12
+        },
+        "spectral_model": {
+          "auc": 0.16666666666666666,
+          "auc_ci_95": [
+            0.06666666666666667,
+            0.3
+          ],
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "ppv": 0.9375,
+          "npv": NaN,
+          "tp": 15,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "sprt": {
+          "auc": 0.6666666666666666,
+          "auc_ci_95": [
+            0.5666666666666667,
+            0.8
+          ],
+          "sensitivity": 0.2,
+          "specificity": 1.0,
+          "ppv": 1.0,
+          "npv": 0.07692307692307693,
+          "fp": 0,
+          "tn": 1,
+          "fn": 12
+        }
+      },
+      "lead_time_analysis": {
+        "csd_threshold": {
+          "mean_lead_time_true_positive": NaN,
+          "sd_lead_time_true_positive": NaN,
+          "n_true_positive": 0,
+          "mean_lead_time_true_negative": 5.0,
+          "sd_lead_time_true_negative": NaN,
+          "n_true_negative": 1,
+          "mean_lead_time_false_positive": NaN,
+          "sd_lead_time_false_positive": NaN,
+          "n_false_positive": 0,
+          "mean_lead_time_false_negative": 5.0,
+          "sd_lead_time_false_negative": 0.0,
+          "n_false_negative": 15
+        },
+        "naive_agreement": {
+          "mean_lead_time_true_positive": 5.0,
+          "sd_lead_time_true_positive": 0.0,
+          "n_true_positive": 3,
+          "mean_lead_time_true_negative": 5.0,
+          "sd_lead_time_true_negative": NaN,
+          "n_true_negative": 1,
+          "mean_lead_time_false_positive": NaN,
+          "sd_lead_time_false_positive": NaN,
+          "n_false_positive": 0,
+          "mean_lead_time_false_negative": 5.0,
+          "sd_lead_time_false_negative": 0.0,
+          "n_false_negative": 12
+        },
+        "spectral_model": {
+          "mean_lead_time_true_positive": 5.0,
+          "sd_lead_time_true_positive": 0.0,
+          "n_true_positive": 15,
+          "mean_lead_time_true_negative": NaN,
+          "sd_lead_time_true_negative": NaN,
+          "n_true_negative": 0,
+          "mean_lead_time_false_positive": 5.0,
+          "sd_lead_time_false_positive": NaN,
+          "n_false_positive": 1,
+          "mean_lead_time_false_negative": NaN,
+          "sd_lead_time_false_negative": NaN,
+          "n_false_negative": 0
+        },
+        "sprt": {
+          "mean_lead_time_true_positive": 6.0,
+          "sd_lead_time_true_positive": 0.0,
+          "n_true_positive": 3,
+          "mean_lead_time_true_negative": 6.0,
+          "sd_lead_time_true_negative": NaN,
+          "n_true_negative": 1,
+          "mean_lead_time_false_positive": NaN,
+          "sd_lead_time_false_positive": NaN,
+          "n_false_positive": 0,
+          "mean_lead_time_false_negative": 6.0,
+          "sd_lead_time_false_negative": 0.0,
+          "n_false_negative": 12
+        }
+      },
+      "deadlock_analysis": {
+        "n_deadlocked": 4,
+        "claim_scope": "n=5 deadlocked cases are insufficient for any mode-specific statistical claim; deadlock detection is deferred and excluded from the classifier train/test evaluation's inferential claims (it is retained inside collapse_any as a descriptive superset member only).",
+        "deadlock_cases": [
+          {
+            "debate_id": "0d142f10-780e-47d6-9ff4-fc17fa1b5443",
+            "n_rounds": 7,
+            "agreement_trajectory": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.8,
+              0.8,
+              0.6
+            ],
+            "outcome_label": "deadlocked",
+            "autocorr_pre_mean": NaN,
+            "variance_pre_mean": 0.003555555555555554
+          },
+          {
+            "debate_id": "25208a59-7750-46af-a915-d46ed5415fed",
+            "n_rounds": 7,
+            "agreement_trajectory": [
+              1.0,
+              1.0,
+              1.0,
+              0.6,
+              0.8,
+              0.8,
+              0.6
+            ],
+            "outcome_label": "deadlocked",
+            "autocorr_pre_mean": -1.0,
+            "variance_pre_mean": 0.014222222222222225
+          },
+          {
+            "debate_id": "b4b7f135-fb74-41e2-aa78-3394c764c373",
+            "n_rounds": 7,
+            "agreement_trajectory": [
+              1.0,
+              0.8,
+              0.6,
+              0.8,
+              0.6,
+              0.6,
+              0.6
+            ],
+            "outcome_label": "deadlocked",
+            "autocorr_pre_mean": -0.3333333333333333,
+            "variance_pre_mean": 0.012666666666666668
+          },
+          {
+            "debate_id": "c13715e1-95ab-402b-b1af-72f53382df04",
+            "n_rounds": 7,
+            "agreement_trajectory": [
+              0.6,
+              0.6,
+              1.0,
+              0.6,
+              0.6,
+              0.6,
+              0.6
+            ],
+            "outcome_label": "deadlocked",
+            "autocorr_pre_mean": -1.0,
+            "variance_pre_mean": 0.021333333333333336
+          }
+        ]
+      }
+    },
+    "sensitivity_analysis": {
+      "full_dataset_vs_clean_dataset": {
+        "permutation_autocorr_p_full": 0.5541445855414459,
+        "permutation_autocorr_p_clean": NaN,
+        "permutation_variance_p_full": 0.0993900609939006,
+        "permutation_variance_p_clean": 0.256974302569743,
+        "csd_threshold_auc_full": 0.5,
+        "csd_threshold_auc_clean": 0.5,
+        "naive_agreement_auc_full": 0.5571428571428572,
+        "naive_agreement_auc_clean": 0.6,
+        "spectral_model_auc_full": 0.5761904761904761,
+        "spectral_model_auc_clean": 0.16666666666666666,
+        "sprt_auc_full": 0.5904761904761905,
+        "sprt_auc_clean": 0.6666666666666666,
+        "max_abs_auc_difference": 0.4095238095238095,
+        "p_value_crosses_005_boundary": false,
+        "robust_to_label_noise": false,
+        "note": "Compares the full dataset against the dataset with critical_expert_memory_simple_voting excluded (that config carries the ~24% decisionSuccess/final-answer label mismatch documented in the dataset dependency)."
+      }
+    },
+    "dataset_metadata": {
+      "dataset_rows": 665,
+      "n_debates": 95,
+      "n_converged": 45,
+      "n_collapsed": 45,
+      "n_deadlocked": 5,
+      "mean_rounds_per_debate": 7.0,
+      "window_size_autocorr": 2,
+      "window_size_variance": 3,
+      "permutation_replicates": 10000,
+      "block_length_permutation": 2,
+      "train_test_split": "70-30 stratified by outcome_label",
+      "bootstrap_replicates": 1000,
+      "analysis_timestamp": "2026-08-01 15:39:17 UTC",
+      "note_autocorr_sample_sparsity": "agreement_score is a discretized fraction (k-of-n_agents matching the modal solution), so it is frequently constant across a debate's early rounds; the lag-1 autocorrelation statistic is only defined (non-NaN) where a trailing window has nonzero variance, which sharply reduces the effective sample size feeding the autocorrelation permutation test/classifier relative to the rolling-variance statistic (which stays defined at variance=0). This is an intrinsic property of the discretized signal, not a computation error; the variance-based tests and classifiers should be weighted more heavily than the sparse autocorrelation results.",
+      "note_cascade_vs_false_consensus": "Dataset labels only distinguish converged/collapsed/deadlocked; no cascade-vs-false-consensus sub-label is present in metadata, so the plan's step-17 collapse-mode breakdown could not be run and is omitted."
+    }
+  },
+  "datasets": [
+    {
+      "dataset": "Multi-Agent-LLMs/DEBATE (derived: CSD early-warning analysis)",
+      "examples": [
+        {
+          "input": "{\"debate_id\": \"0dc56789-0e0c-4b20-bfa7-8bab2af32e89\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "converged",
+          "metadata_debate_id": "0dc56789-0e0c-4b20-bfa7-8bab2af32e89",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "collapse",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"111cdd33-397d-4f96-bb83-71286c33e323\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "111cdd33-397d-4f96-bb83-71286c33e323",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "converged",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"11c095bb-9944-46b9-b99b-4e925c573a9d\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "converged",
+          "metadata_debate_id": "11c095bb-9944-46b9-b99b-4e925c573a9d",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "collapse",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"2114fe46-352f-41ec-a350-0c5705f65507\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "converged",
+          "metadata_debate_id": "2114fe46-352f-41ec-a350-0c5705f65507",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "collapse",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"22d3dde8-92d6-4d5b-bd3f-1f73db282005\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "converged",
+          "metadata_debate_id": "22d3dde8-92d6-4d5b-bd3f-1f73db282005",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "collapse",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"256a9880-a3c5-4066-871d-9fcf7ff3a5a0\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "converged",
+          "metadata_debate_id": "256a9880-a3c5-4066-871d-9fcf7ff3a5a0",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "converged",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"30390d1a-0a4d-4c3c-baa8-fdc1d2881ff0\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "30390d1a-0a4d-4c3c-baa8-fdc1d2881ff0",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "converged",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"3603c98e-1d2d-463e-b679-558cb5d84970\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [0.8, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0037777777777777757, \"spectral_radius\": 0.6830127018922193}",
+          "output": "collapsed",
+          "metadata_debate_id": "3603c98e-1d2d-463e-b679-558cb5d84970",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "collapse",
+          "predict_spectral_model": "collapse",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"3e13ff4a-d52c-420b-8404-b71d6408966f\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [0.6667, 1.0, 0.6667, 0.6667, 0.6667, 0.6667, 0.6667], \"autocorr_pre_mean\": -1.0, \"variance_pre_mean\": 0.015429012500000002, \"spectral_radius\": 0.0}",
+          "output": "converged",
+          "metadata_debate_id": "3e13ff4a-d52c-420b-8404-b71d6408966f",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "collapse",
+          "predict_spectral_model": "converged",
+          "predict_sprt": "collapse"
+        },
+        {
+          "input": "{\"debate_id\": \"481f99b4-8d71-4b11-aa41-d56fea833ecb\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "481f99b4-8d71-4b11-aa41-d56fea833ecb",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "converged",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"59e7915a-199c-4039-8571-a070f9148ab7\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "converged",
+          "metadata_debate_id": "59e7915a-199c-4039-8571-a070f9148ab7",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "converged",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"63c3ee62-3345-45d5-9521-28a1f39f5c99\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "63c3ee62-3345-45d5-9521-28a1f39f5c99",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "converged",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"6abb40d2-8862-4488-82b7-57b42effb442\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.853001323466786}",
+          "output": "collapsed",
+          "metadata_debate_id": "6abb40d2-8862-4488-82b7-57b42effb442",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "collapse",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"700e58f5-c2f6-43e6-b78c-dafe437cbafe\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "700e58f5-c2f6-43e6-b78c-dafe437cbafe",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "collapse",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"72831998-fcf4-486c-af40-77eca70b1707\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0000000000000018}",
+          "output": "collapsed",
+          "metadata_debate_id": "72831998-fcf4-486c-af40-77eca70b1707",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "collapse",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"7773d810-b324-4e07-8cf3-fdbd55d2ffdb\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.7287135538781697}",
+          "output": "collapsed",
+          "metadata_debate_id": "7773d810-b324-4e07-8cf3-fdbd55d2ffdb",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "collapse",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"7a8469a6-4654-4dd5-9a9f-a362a8cc0484\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [0.6667, 1.0, 1.0, 1.0, 1.0, 0.6667, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.015429012500000002, \"spectral_radius\": 0.0}",
+          "output": "converged",
+          "metadata_debate_id": "7a8469a6-4654-4dd5-9a9f-a362a8cc0484",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "collapse",
+          "predict_spectral_model": "converged",
+          "predict_sprt": "collapse"
+        },
+        {
+          "input": "{\"debate_id\": \"978fc3e7-f442-403c-9634-0f0ba9c88223\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "converged",
+          "metadata_debate_id": "978fc3e7-f442-403c-9634-0f0ba9c88223",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "converged",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"989061a6-688c-4592-a4bd-5e119555df36\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "converged",
+          "metadata_debate_id": "989061a6-688c-4592-a4bd-5e119555df36",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "converged",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"9e952fc2-4674-4d31-af44-96ab7955e098\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "converged",
+          "metadata_debate_id": "9e952fc2-4674-4d31-af44-96ab7955e098",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "converged",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"b69240c5-e3a6-40d6-a456-0ab0bbba19dc\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [0.8, 0.8, 0.8, 0.6, 0.4, 0.6, 0.8], \"autocorr_pre_mean\": 0.0, \"variance_pre_mean\": 0.00888888888888889, \"spectral_radius\": 1.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "b69240c5-e3a6-40d6-a456-0ab0bbba19dc",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "collapse",
+          "predict_spectral_model": "collapse",
+          "predict_sprt": "collapse"
+        },
+        {
+          "input": "{\"debate_id\": \"c13715e1-95ab-402b-b1af-72f53382df04\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [0.6, 0.6, 1.0, 0.6, 0.6, 0.6, 0.6], \"autocorr_pre_mean\": -1.0, \"variance_pre_mean\": 0.021333333333333336, \"spectral_radius\": 1.0}",
+          "output": "deadlocked",
+          "metadata_debate_id": "c13715e1-95ab-402b-b1af-72f53382df04",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "collapse",
+          "predict_spectral_model": "collapse",
+          "predict_sprt": "collapse"
+        },
+        {
+          "input": "{\"debate_id\": \"c86a3bfd-6291-452f-8902-569de36ce949\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0000000000000013}",
+          "output": "collapsed",
+          "metadata_debate_id": "c86a3bfd-6291-452f-8902-569de36ce949",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "collapse",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"cbc9e2d0-4fa5-4f7b-b7db-397d94a92b1c\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.6830127018922193}",
+          "output": "collapsed",
+          "metadata_debate_id": "cbc9e2d0-4fa5-4f7b-b7db-397d94a92b1c",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "collapse",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"d48d937c-a6c4-42b7-973b-8cd1f91e9e5e\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "converged",
+          "metadata_debate_id": "d48d937c-a6c4-42b7-973b-8cd1f91e9e5e",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "collapse",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"d57126b2-36ff-41b5-9c63-46d773a55325\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [1.0, 1.0, 0.6667, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": -1.0, \"variance_pre_mean\": 0.014811852000000004, \"spectral_radius\": 0.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "d57126b2-36ff-41b5-9c63-46d773a55325",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "converged",
+          "predict_sprt": "collapse"
+        },
+        {
+          "input": "{\"debate_id\": \"f320aa0b-57a6-4fab-8199-22e29f54f6db\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "converged",
+          "metadata_debate_id": "f320aa0b-57a6-4fab-8199-22e29f54f6db",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "converged",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"fa6a4e54-e4b7-48eb-bdb4-0b0ef4117070\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [0.6667, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.010491728500000002, \"spectral_radius\": 0.5}",
+          "output": "collapsed",
+          "metadata_debate_id": "fa6a4e54-e4b7-48eb-bdb4-0b0ef4117070",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "collapse",
+          "predict_spectral_model": "collapse",
+          "predict_sprt": "collapse"
+        },
+        {
+          "input": "{\"debate_id\": \"fdc53860-da9e-4a17-a28c-167ba3ab1ec8\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "converged",
+          "metadata_debate_id": "fdc53860-da9e-4a17-a28c-167ba3ab1ec8",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "collapse",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"050e8747-adb5-4097-a527-7cc58445c44b\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "050e8747-adb5-4097-a527-7cc58445c44b",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"0562ec15-1ade-4310-b9be-ef5eb6a612ed\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.49999999999999967}",
+          "output": "collapsed",
+          "metadata_debate_id": "0562ec15-1ade-4310-b9be-ef5eb6a612ed",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"0ad417c8-9ec3-41fd-b59e-532108e50da4\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "converged",
+          "metadata_debate_id": "0ad417c8-9ec3-41fd-b59e-532108e50da4",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"0d142f10-780e-47d6-9ff4-fc17fa1b5443\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 0.8, 0.8, 0.6], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.003555555555555554, \"spectral_radius\": 0.6830127018922193}",
+          "output": "deadlocked",
+          "metadata_debate_id": "0d142f10-780e-47d6-9ff4-fc17fa1b5443",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"0fbc7dc6-2c1d-4cf7-8f74-833d32d5012f\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "converged",
+          "metadata_debate_id": "0fbc7dc6-2c1d-4cf7-8f74-833d32d5012f",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"124aee7d-ede2-4857-bde5-83b643285006\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "124aee7d-ede2-4857-bde5-83b643285006",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"125107db-8b37-4242-b572-6af3d439ae6c\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "converged",
+          "metadata_debate_id": "125107db-8b37-4242-b572-6af3d439ae6c",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"137042a3-c972-4629-8404-5ae12e4ed4cc\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "137042a3-c972-4629-8404-5ae12e4ed4cc",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"1fea5fa0-2b60-4c07-8761-d07d5d308129\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "converged",
+          "metadata_debate_id": "1fea5fa0-2b60-4c07-8761-d07d5d308129",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"21c53dee-a2e7-4abf-8c14-b1ee4c60ad82\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.6830127018922193}",
+          "output": "collapsed",
+          "metadata_debate_id": "21c53dee-a2e7-4abf-8c14-b1ee4c60ad82",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"25208a59-7750-46af-a915-d46ed5415fed\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 0.6, 0.8, 0.8, 0.6], \"autocorr_pre_mean\": -1.0, \"variance_pre_mean\": 0.014222222222222225, \"spectral_radius\": 1.0}",
+          "output": "deadlocked",
+          "metadata_debate_id": "25208a59-7750-46af-a915-d46ed5415fed",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"28a1c93c-d641-4085-bbdd-3f827934e906\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [0.6667, 1.0, 1.0, 1.0, 1.0, 0.6667, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.015429012500000002, \"spectral_radius\": 0.0}",
+          "output": "converged",
+          "metadata_debate_id": "28a1c93c-d641-4085-bbdd-3f827934e906",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"28c57a66-8d40-44b4-a82a-459763cff42a\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "converged",
+          "metadata_debate_id": "28c57a66-8d40-44b4-a82a-459763cff42a",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"2dd52520-65ff-4c48-9bda-7ed5072ffbba\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "2dd52520-65ff-4c48-9bda-7ed5072ffbba",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"2f60124c-b187-47a9-af19-7acf1452e575\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "converged",
+          "metadata_debate_id": "2f60124c-b187-47a9-af19-7acf1452e575",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"322162e1-1acb-493c-bcd4-1881cb9ec8a9\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "322162e1-1acb-493c-bcd4-1881cb9ec8a9",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"355722d8-1082-4663-9523-274b22450354\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "355722d8-1082-4663-9523-274b22450354",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"35f4f364-59c5-4c89-8bd1-90c26e71795b\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "converged",
+          "metadata_debate_id": "35f4f364-59c5-4c89-8bd1-90c26e71795b",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"37301482-a399-4e63-ac38-3d2924844fa3\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "37301482-a399-4e63-ac38-3d2924844fa3",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"42ad4989-b738-4997-9a4e-b8e4d82c16c6\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.6667], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "42ad4989-b738-4997-9a4e-b8e4d82c16c6",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"4648afa0-a76f-4c85-acb1-93f7648a5bfa\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "4648afa0-a76f-4c85-acb1-93f7648a5bfa",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"4d3ebf75-6e19-4e8d-bb83-7e23e5d45a84\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "converged",
+          "metadata_debate_id": "4d3ebf75-6e19-4e8d-bb83-7e23e5d45a84",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"55fdbb4b-8fe6-47ae-bdca-c8adc33a79af\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [0.6667, 0.6667, 0.6667, 0.6667, 0.6667, 0.6667, 0.6667], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "converged",
+          "metadata_debate_id": "55fdbb4b-8fe6-47ae-bdca-c8adc33a79af",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"5a7eb7b9-63ee-4780-a6c3-488b7d10485f\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [0.6, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.015111111111111113, \"spectral_radius\": 0.6830127018922193}",
+          "output": "collapsed",
+          "metadata_debate_id": "5a7eb7b9-63ee-4780-a6c3-488b7d10485f",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"617a0161-a049-447a-bf49-838c4813ddc4\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [0.8, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0037777777777777757, \"spectral_radius\": 1.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "617a0161-a049-447a-bf49-838c4813ddc4",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"626ecf9e-bef7-41f5-8aeb-ea24692d77f5\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [0.6667, 0.6667, 1.0, 0.6667, 1.0, 0.6667, 1.0], \"autocorr_pre_mean\": -1.0, \"variance_pre_mean\": 0.019749136000000004, \"spectral_radius\": 0.5}",
+          "output": "collapsed",
+          "metadata_debate_id": "626ecf9e-bef7-41f5-8aeb-ea24692d77f5",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"65f3bcaa-bcb2-4fb0-b4a1-f2a2f04b4df1\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [0.6667, 0.6667, 1.0, 0.6667, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": -1.0, \"variance_pre_mean\": 0.019749136000000004, \"spectral_radius\": 0.0}",
+          "output": "converged",
+          "metadata_debate_id": "65f3bcaa-bcb2-4fb0-b4a1-f2a2f04b4df1",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"69a04a9e-052a-41d1-9914-c8a28563f993\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [0.6, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.015111111111111113, \"spectral_radius\": 0.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "69a04a9e-052a-41d1-9914-c8a28563f993",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"7851c400-872b-44d4-be19-30fe1fca5954\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "7851c400-872b-44d4-be19-30fe1fca5954",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"7895afd4-79e9-4689-8681-e7012383f4d4\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "converged",
+          "metadata_debate_id": "7895afd4-79e9-4689-8681-e7012383f4d4",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"7cf177f5-3b15-45af-ae62-0aaa20d77c62\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "converged",
+          "metadata_debate_id": "7cf177f5-3b15-45af-ae62-0aaa20d77c62",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"813f2b7e-25cf-4fe5-8b37-b88b91edafd9\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "converged",
+          "metadata_debate_id": "813f2b7e-25cf-4fe5-8b37-b88b91edafd9",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"83fa05b1-8414-4010-9d54-db12b6ec666a\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "converged",
+          "metadata_debate_id": "83fa05b1-8414-4010-9d54-db12b6ec666a",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"875aedb8-ad50-4b02-97f8-116e995d11ab\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "converged",
+          "metadata_debate_id": "875aedb8-ad50-4b02-97f8-116e995d11ab",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"967e900d-3b9f-44e1-b93b-ab564c3214c6\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "967e900d-3b9f-44e1-b93b-ab564c3214c6",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"98bcff56-013e-4ed1-b987-86abaff6978f\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.8587518786966921}",
+          "output": "collapsed",
+          "metadata_debate_id": "98bcff56-013e-4ed1-b987-86abaff6978f",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"9d7ab3b0-501c-4fa7-8102-26b60c9e27d8\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [0.6667, 1.0, 0.6667, 0.6667, 0.6667, 0.6667, 0.6667], \"autocorr_pre_mean\": -1.0, \"variance_pre_mean\": 0.015429012500000002, \"spectral_radius\": 0.5}",
+          "output": "converged",
+          "metadata_debate_id": "9d7ab3b0-501c-4fa7-8102-26b60c9e27d8",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"9fa31d33-4df5-4e20-bef0-ec3107d4db4f\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.8090169943749485}",
+          "output": "collapsed",
+          "metadata_debate_id": "9fa31d33-4df5-4e20-bef0-ec3107d4db4f",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"a04cd5b7-d262-4a46-b49f-08d6877dedbe\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "converged",
+          "metadata_debate_id": "a04cd5b7-d262-4a46-b49f-08d6877dedbe",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"a56c6f57-d9b1-4704-93ab-3c8c09d0d119\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "converged",
+          "metadata_debate_id": "a56c6f57-d9b1-4704-93ab-3c8c09d0d119",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"a8e229d0-1de6-4e8f-a116-ebd0205473eb\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "converged",
+          "metadata_debate_id": "a8e229d0-1de6-4e8f-a116-ebd0205473eb",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"a97a7b79-0535-46c6-820b-9e46127f90f1\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "converged",
+          "metadata_debate_id": "a97a7b79-0535-46c6-820b-9e46127f90f1",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"ad52c0a2-9963-428e-850f-15a63ba7dd6c\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "converged",
+          "metadata_debate_id": "ad52c0a2-9963-428e-850f-15a63ba7dd6c",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"b4b7f135-fb74-41e2-aa78-3394c764c373\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 0.8, 0.6, 0.8, 0.6, 0.6, 0.6], \"autocorr_pre_mean\": -0.3333333333333333, \"variance_pre_mean\": 0.012666666666666668, \"spectral_radius\": 1.0}",
+          "output": "deadlocked",
+          "metadata_debate_id": "b4b7f135-fb74-41e2-aa78-3394c764c373",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"b8f85105-703a-4d81-a43a-1c1ad499e111\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "b8f85105-703a-4d81-a43a-1c1ad499e111",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"bcbc6472-4a41-4eb4-b587-60ba942c39bc\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.7025747892514314}",
+          "output": "collapsed",
+          "metadata_debate_id": "bcbc6472-4a41-4eb4-b587-60ba942c39bc",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"bd05efda-e1e6-44b7-8a51-b77cad8e5697\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "bd05efda-e1e6-44b7-8a51-b77cad8e5697",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"bf019bbc-973d-4787-b501-b0945e262197\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "bf019bbc-973d-4787-b501-b0945e262197",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"c5912fda-c6aa-4d03-b614-d35b7265c534\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "c5912fda-c6aa-4d03-b614-d35b7265c534",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"c607409c-4c6f-482c-bc9f-a3ea9f9ab2c4\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [0.6667, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.010491728500000002, \"spectral_radius\": 0.0}",
+          "output": "converged",
+          "metadata_debate_id": "c607409c-4c6f-482c-bc9f-a3ea9f9ab2c4",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"ca2fda9f-7c2e-4550-91a4-905a29f98291\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "ca2fda9f-7c2e-4550-91a4-905a29f98291",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"d56b72ec-7cf5-485c-8029-38b895d1fa79\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "d56b72ec-7cf5-485c-8029-38b895d1fa79",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"d9b3cf9f-7b35-4c9b-9080-b0f1e8cb555f\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "converged",
+          "metadata_debate_id": "d9b3cf9f-7b35-4c9b-9080-b0f1e8cb555f",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"defd4ee1-b948-465e-92fd-b1575be76333\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "converged",
+          "metadata_debate_id": "defd4ee1-b948-465e-92fd-b1575be76333",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"e201b865-9d62-4e51-871c-a979f547ac7f\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [0.6667, 0.6667, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.009874568000000002, \"spectral_radius\": 0.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "e201b865-9d62-4e51-871c-a979f547ac7f",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"e6d71329-a2d4-4ac6-8844-6908bf9651a4\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "e6d71329-a2d4-4ac6-8844-6908bf9651a4",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"e8eaaace-13d2-4576-bb9c-fc16552523fa\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.7500000000000001}",
+          "output": "collapsed",
+          "metadata_debate_id": "e8eaaace-13d2-4576-bb9c-fc16552523fa",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"eae69411-be27-4ff5-82bc-3ad58fcf1380\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "converged",
+          "metadata_debate_id": "eae69411-be27-4ff5-82bc-3ad58fcf1380",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"ececd2bf-85b0-4475-83e4-fbc31a421f4c\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [0.6667, 0.6667, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.009874568000000002, \"spectral_radius\": 0.0}",
+          "output": "converged",
+          "metadata_debate_id": "ececd2bf-85b0-4475-83e4-fbc31a421f4c",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"ee198827-fd89-4eb7-8ca5-a8659aeedd7b\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "converged",
+          "metadata_debate_id": "ee198827-fd89-4eb7-8ca5-a8659aeedd7b",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"eea56175-8d4a-41e1-baa5-ab0bb5863389\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [1.0, 0.6667, 0.6667, 0.6667, 0.6667, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.015429012500000002, \"spectral_radius\": 0.0}",
+          "output": "collapsed",
+          "metadata_debate_id": "eea56175-8d4a-41e1-baa5-ab0bb5863389",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"efc9b98b-3b47-4f89-904e-4c6e6b7269ea\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "converged",
+          "metadata_debate_id": "efc9b98b-3b47-4f89-904e-4c6e6b7269ea",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"f0fc7c9c-59e2-4479-bdd7-f952c631bed0\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "converged",
+          "metadata_debate_id": "f0fc7c9c-59e2-4479-bdd7-f952c631bed0",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"f13f25e2-06a4-4a8e-9c82-a0c1dfca13e3\", \"source_config\": \"critical_expert_debate_majority_consensus\", \"agreement_trajectory\": [0.6, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.00377777777777778, \"spectral_radius\": 0.9999999999999999}",
+          "output": "collapsed",
+          "metadata_debate_id": "f13f25e2-06a4-4a8e-9c82-a0c1dfca13e3",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"f3e978ac-adc8-4788-9f96-aab071b4769f\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 1.0}",
+          "output": "converged",
+          "metadata_debate_id": "f3e978ac-adc8-4788-9f96-aab071b4769f",
+          "metadata_split": "train"
+        },
+        {
+          "input": "{\"debate_id\": \"f4e0490c-6c5f-4687-82a8-914dcf8aab90\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [0.3333, 0.3333, 0.3333, 0.3333, 0.3333, 0.3333, 0.3333], \"autocorr_pre_mean\": null, \"variance_pre_mean\": 0.0, \"spectral_radius\": 0.0}",
+          "output": "deadlocked",
+          "metadata_debate_id": "f4e0490c-6c5f-4687-82a8-914dcf8aab90",
+          "metadata_split": "train"
+        }
+      ]
+    }
+  ]
+}

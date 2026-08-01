@@ -1,0 +1,393 @@
+{
+  "metadata": {
+    "evaluation_name": "csd_classifier_cv_ablation_robustness",
+    "description": "5-fold stratified CV, feature ablation, PSD colored-noise regime analysis, failure-mode segmentation, naive/spectral/SPRT baseline comparison, and robustness checks for a critical-slowing-down (CSD) e...",
+    "n_folds": 5,
+    "default_window": 3,
+    "random_state": 0,
+    "cross_validation": {
+      "csd": {
+        "mean_auc": 0.49000000000000005,
+        "sd_auc": 0.0370851539295081,
+        "mean_precision": 0.5052631578947369,
+        "mean_recall": 0.9,
+        "mean_f1": 0.6467222432739674,
+        "per_fold": [
+          {
+            "fold": 0,
+            "auc": 0.5,
+            "precision": 0.5,
+            "recall": 0.9,
+            "f1": 0.6428571428571429,
+            "tp": 9,
+            "fp": 9,
+            "tn": 0,
+            "fn": 1,
+            "naive_threshold": null
+          },
+          {
+            "fold": 1,
+            "auc": 0.49444444444444446,
+            "precision": 0.5,
+            "recall": 0.9,
+            "f1": 0.6428571428571429,
+            "tp": 9,
+            "fp": 9,
+            "tn": 0,
+            "fn": 1,
+            "naive_threshold": null
+          },
+          {
+            "fold": 2,
+            "auc": 0.55,
+            "precision": 0.5,
+            "recall": 0.9,
+            "f1": 0.6428571428571429,
+            "tp": 9,
+            "fp": 9,
+            "tn": 0,
+            "fn": 1,
+            "naive_threshold": null
+          }
+        ]
+      },
+      "naive": {
+        "mean_auc": 0.5855555555555555,
+        "sd_auc": 0.05672110674711211,
+        "mean_precision": 0.5263157894736842,
+        "mean_recall": 1.0,
+        "mean_f1": 0.6896551724137931,
+        "per_fold": [
+          {
+            "fold": 0,
+            "auc": 0.5388888888888889,
+            "precision": 0.5263157894736842,
+            "recall": 1.0,
+            "f1": 0.6896551724137931,
+            "tp": 10,
+            "fp": 9,
+            "tn": 0,
+            "fn": 0,
+            "naive_threshold": 1.0
+          },
+          {
+            "fold": 1,
+            "auc": 0.5777777777777777,
+            "precision": 0.5263157894736842,
+            "recall": 1.0,
+            "f1": 0.6896551724137931,
+            "tp": 10,
+            "fp": 9,
+            "tn": 0,
+            "fn": 0,
+            "naive_threshold": 1.0
+          },
+          {
+            "fold": 2,
+            "auc": 0.65,
+            "precision": 0.5263157894736842,
+            "recall": 1.0,
+            "f1": 0.6896551724137931,
+            "tp": 10,
+            "fp": 9,
+            "tn": 0,
+            "fn": 0,
+            "naive_threshold": 1.0
+          }
+        ]
+      },
+      "spectral": {
+        "mean_auc": 0.5866666666666667,
+        "sd_auc": 0.053931827108940435,
+        "mean_precision": 0.5263157894736842,
+        "mean_recall": 1.0,
+        "mean_f1": 0.6896551724137931,
+        "per_fold": [
+          {
+            "fold": 0,
+            "auc": 0.5944444444444444,
+            "precision": 0.5263157894736842,
+            "recall": 1.0,
+            "f1": 0.6896551724137931,
+            "tp": 10,
+            "fp": 9,
+            "tn": 0,
+            "fn": 0,
+            "naive_threshold": null
+          },
+          {
+            "fold": 1,
+            "auc": 0.5833333333333333,
+            "precision": 0.5263157894736842,
+            "recall": 1.0,
+            "f1": 0.6896551724137931,
+            "tp": 10,
+            "fp": 9,
+            "tn": 0,
+            "fn": 0,
+            "naive_threshold": null
+          },
+          {
+            "fold": 2,
+            "auc": 0.65,
+            "precision": 0.5263157894736842,
+            "recall": 1.0,
+            "f1": 0.6896551724137931,
+            "tp": 10,
+            "fp": 9,
+            "tn": 0,
+            "fn": 0,
+            "naive_threshold": null
+          }
+        ]
+      }
+    },
+    "sprt_baseline": {
+      "mean_auc": 0.5855555555555555,
+      "sd_auc": 0.05672110674711211,
+      "n_folds_evaluable": 5
+    },
+    "feature_ablation": {
+      "ac1_only": {
+        "mean_auc": 0.4644444444444445,
+        "sd_auc": 0.02802115602870775
+      },
+      "var_only": {
+        "mean_auc": 0.5288888888888887,
+        "sd_auc": 0.020306296536107875
+      },
+      "both": {
+        "mean_auc": 0.49000000000000005,
+        "sd_auc": 0.0370851539295081
+      },
+      "ablation_deltas_pct": {
+        "pct_auc_change_ablating_to_ac1_only": -5.215419501133786,
+        "pct_auc_change_ablating_to_var_only": 7.936507936507897
+      }
+    },
+    "spectral_regime_analysis": {
+      "fraction_by_regime_and_outcome": {
+        "collapse": {
+          "white_noise": 0.24,
+          "flat_no_variation": 0.68,
+          "system_dynamics_low_freq_peak": 0.08
+        },
+        "no_collapse": {
+          "flat_no_variation": 0.8444444444444444,
+          "white_noise": 0.13333333333333333,
+          "system_dynamics_low_freq_peak": 0.022222222222222223
+        }
+      }
+    },
+    "failure_mode_analysis": {
+      "classifier_threshold": 0.5201336755397404,
+      "by_length_quartile_group": {
+        "short_1_2": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0,
+          "n": 0
+        },
+        "mid_3_4": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0,
+          "n": 0
+        },
+        "long_5_7": {
+          "tp": 31,
+          "fp": 27,
+          "tn": 18,
+          "fn": 19,
+          "n": 95
+        }
+      },
+      "by_model_diversity": {
+        "homogeneous_1_model": {
+          "tp": 31,
+          "fp": 27,
+          "tn": 18,
+          "fn": 19,
+          "n": 95
+        },
+        "mixed_multi_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0,
+          "n": 0
+        }
+      },
+      "by_agreement_range": {
+        "high_gt_0.8": {
+          "tp": 27,
+          "fp": 25,
+          "tn": 17,
+          "fn": 18,
+          "n": 87
+        },
+        "medium_0.5_0.8": {
+          "tp": 3,
+          "fp": 2,
+          "tn": 1,
+          "fn": 1,
+          "n": 7
+        },
+        "low_lt_0.5": {
+          "tp": 1,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0,
+          "n": 1
+        }
+      },
+      "n_mispredictions": 46
+    },
+    "early_warning_lead_time_comparison": {
+      "csd": {
+        "alarm_threshold": 0.0,
+        "n_debates_with_alarm": 50,
+        "n_collapsing_total": 50,
+        "mean_lead_time_rounds": 7.0,
+        "sd_lead_time_rounds": 0.0
+      },
+      "naive": {
+        "alarm_threshold": -1.0,
+        "n_debates_with_alarm": 50,
+        "n_collapsing_total": 50,
+        "mean_lead_time_rounds": 7.0,
+        "sd_lead_time_rounds": 0.0
+      },
+      "spectral": {
+        "alarm_threshold": 0.0,
+        "n_debates_with_alarm": 50,
+        "n_collapsing_total": 50,
+        "mean_lead_time_rounds": 7.0,
+        "sd_lead_time_rounds": 0.0
+      }
+    },
+    "robustness_checks": {
+      "config_collapse_rates": {
+        "critical_expert_debate_majority_consensus": {
+          "n": 30,
+          "collapse_rate": 1.0,
+          "mismatch_pp": 47.36842105263158
+        },
+        "critical_expert_memory_simple_voting": {
+          "n": 44,
+          "collapse_rate": 0.022727272727272728,
+          "mismatch_pp": 50.358851674641144
+        },
+        "critical_expert_relay_approval_voting": {
+          "n": 21,
+          "collapse_rate": 0.9047619047619048,
+          "mismatch_pp": 37.84461152882206
+        }
+      },
+      "noisy_configs_excluded": [
+        "critical_expert_memory_simple_voting"
+      ],
+      "csd_auc_full": 0.49000000000000005,
+      "csd_auc_excluding_noisy_configs": 0.5777777777777777,
+      "bootstrap_short_window_stability": {
+        "2": {
+          "mean_trend_ac1": 0.0,
+          "sd_trend_ac1_across_bootstraps": 0.0,
+          "coefficient_of_variation": null
+        },
+        "3": {
+          "mean_trend_ac1": 0.004261868232908444,
+          "sd_trend_ac1_across_bootstraps": 0.01495899536157667,
+          "coefficient_of_variation": 3.5099619566060927
+        }
+      },
+      "window_size_effect_on_auc": {
+        "2": {
+          "mean_auc": 0.4622222222222222,
+          "sd_auc": 0.03607262906832872
+        },
+        "3": {
+          "mean_auc": 0.49000000000000005,
+          "sd_auc": 0.0370851539295081
+        }
+      }
+    }
+  },
+  "metrics_agg": {
+    "n_debates_total": 95,
+    "n_debates_collapse": 50,
+    "n_debates_converged": 45,
+    "csd_mean_auc": 0.49000000000000005,
+    "csd_sd_auc": 0.0370851539295081,
+    "csd_mean_precision": 0.5052631578947369,
+    "csd_mean_recall": 0.9,
+    "csd_mean_f1": 0.6467222432739674,
+    "naive_mean_auc": 0.5855555555555555,
+    "naive_sd_auc": 0.05672110674711211,
+    "spectral_mean_auc": 0.5866666666666667,
+    "spectral_sd_auc": 0.053931827108940435,
+    "sprt_mean_auc": 0.5855555555555555,
+    "sprt_sd_auc": 0.05672110674711211,
+    "ablation_ac1_only_auc": 0.4644444444444445,
+    "ablation_var_only_auc": 0.5288888888888887,
+    "ablation_both_auc": 0.49000000000000005,
+    "ablation_pct_change_ac1_only": -5.215419501133786,
+    "ablation_pct_change_var_only": 7.936507936507897,
+    "csd_auc_excluding_noisy_configs": 0.5777777777777777,
+    "n_mispredictions": 46,
+    "csd_lead_time_rounds_mean": 7.0,
+    "naive_lead_time_rounds_mean": 7.0,
+    "spectral_lead_time_rounds_mean": 7.0
+  },
+  "datasets": [
+    {
+      "dataset": "Multi-Agent-LLMs/DEBATE",
+      "examples": [
+        {
+          "input": "{\"debate_id\": \"d48d937c-a6c4-42b7-973b-8cd1f91e9e5e\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"source_config\": \"critical_expert_memory_simple_voting\"}",
+          "output": "converged",
+          "metadata_debate_id": "d48d937c-a6c4-42b7-973b-8cd1f91e9e5e",
+          "metadata_n_rounds": 7,
+          "metadata_n_models": 1,
+          "metadata_source_config": "critical_expert_memory_simple_voting",
+          "metadata_ground_truth_label_collapse": 0,
+          "predict_csd_classifier_score": "0.526817",
+          "predict_naive_threshold_score": "-1.0",
+          "predict_spectral_cascade_score": "0.0",
+          "eval_csd_score": 0.5268173763012794,
+          "eval_correct_label": 0
+        },
+        {
+          "input": "{\"debate_id\": \"65f3bcaa-bcb2-4fb0-b4a1-f2a2f04b4df1\", \"agreement_trajectory\": [0.6667, 0.6667, 1.0, 0.6667, 1.0, 1.0, 1.0], \"source_config\": \"critical_expert_memory_simple_voting\"}",
+          "output": "converged",
+          "metadata_debate_id": "65f3bcaa-bcb2-4fb0-b4a1-f2a2f04b4df1",
+          "metadata_n_rounds": 7,
+          "metadata_n_models": 1,
+          "metadata_source_config": "critical_expert_memory_simple_voting",
+          "metadata_ground_truth_label_collapse": 0,
+          "predict_csd_classifier_score": "0.49712",
+          "predict_naive_threshold_score": "-0.857157",
+          "predict_spectral_cascade_score": "0.333333",
+          "eval_csd_score": 0.4971198947535994,
+          "eval_correct_label": 0
+        },
+        {
+          "input": "{\"debate_id\": \"83fa05b1-8414-4010-9d54-db12b6ec666a\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"source_config\": \"critical_expert_memory_simple_voting\"}",
+          "output": "converged",
+          "metadata_debate_id": "83fa05b1-8414-4010-9d54-db12b6ec666a",
+          "metadata_n_rounds": 7,
+          "metadata_n_models": 1,
+          "metadata_source_config": "critical_expert_memory_simple_voting",
+          "metadata_ground_truth_label_collapse": 0,
+          "predict_csd_classifier_score": "0.526817",
+          "predict_naive_threshold_score": "-1.0",
+          "predict_spectral_cascade_score": "0.0",
+          "eval_csd_score": 0.5268173763012794,
+          "eval_correct_label": 0
+        }
+      ]
+    }
+  ]
+}
