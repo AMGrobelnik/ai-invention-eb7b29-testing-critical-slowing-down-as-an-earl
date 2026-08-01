@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "dataset_name": "Multi-Agent-LLMs/DEBATE",
+    "description": "Subset for demo notebook",
+    "n_examples": 3
+  },
+  "datasets": [
+    {
+      "dataset": "Multi-Agent-LLMs/DEBATE",
+      "examples": [
+        {
+          "input": "{\"debate_id\": \"0dc56789-0e0c-4b20-bfa7-8bab2af32e89\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"...",
+          "output": "converged",
+          "metadata_debate_id": "0dc56789-0e0c-4b20-bfa7-8bab2af32e89",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "collapse",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"111cdd33-397d-4f96-bb83-71286c33e323\", \"source_config\": \"critical_expert_relay_approval_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, ...",
+          "output": "collapsed",
+          "metadata_debate_id": "111cdd33-397d-4f96-bb83-71286c33e323",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "converged",
+          "predict_sprt": "converged"
+        },
+        {
+          "input": "{\"debate_id\": \"11c095bb-9944-46b9-b99b-4e925c573a9d\", \"source_config\": \"critical_expert_memory_simple_voting\", \"agreement_trajectory\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"autocorr_pre_mean\": null, \"...",
+          "output": "converged",
+          "metadata_debate_id": "11c095bb-9944-46b9-b99b-4e925c573a9d",
+          "metadata_split": "test",
+          "predict_csd_threshold": "converged",
+          "predict_naive_agreement": "converged",
+          "predict_spectral_model": "collapse",
+          "predict_sprt": "converged"
+        }
+      ]
+    }
+  ]
+}
